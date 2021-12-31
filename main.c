@@ -14,9 +14,7 @@ int** create_graph(int size){
     return new_graph;
 }
 
-int* node_edges(char*, int size){
 
-}
 
 void add_edges_to_graph(int node_number, *int edges){
     // this function add the node and its edges, the array above it is its edges (were is no edge we use 0)
@@ -84,6 +82,62 @@ count++;
 }
 return distance[endnode];
 } 
+
+void a_function(char* str, int size){// get strig from(includes) the letter 'a' untill the next functions letter(not includes that letter)
+    n = str[1]-48;
+    graph = create_graph(n); // ascii code
+    int edges[n];
+    int current_node;
+    for (int i = 0; i < size; i++){
+      if(str[i]=='n'){
+          for (int j = 0; j < n; j++)
+            edges[j] = 0;
+          i +=2;
+          current_node = str[i]-48;
+          while (i<size && str[i] != 'n'){ // maybe str[i+1]
+            int to_node = -1;
+            int cur_distance = 0;
+            while (str[i] != ' '){
+                to_node = to_node*10 + (str[1]-48);
+                i++;
+            }
+            if(to_node !=0)
+                i++;
+            while (str[i] != ' '){
+                cur_distance = cur_distance*10 + (str[1]-48);
+                i++;
+            }
+            if(to_node !=-1)
+                edges[to_node] = cur_distance;
+          }
+          add_edges_to_graph(current_node, edges);
+      }
+    }
+}
+
+void b_function(char* str, int size){
+    int edges[n];
+    int current_node = str[2]-48;
+    for (int i = 0; i < n; i++)
+        edges[i] = 0;
+    for (int i = 3; i < size; i++){        
+            int to_node = -1;
+            int cur_distance = 0;
+            while (str[i] != ' '){
+                to_node = to_node*10 + (str[1]-48);
+                i++;
+            }
+            if(to_node !=0)
+                i++;
+            while (str[i] != ' '){
+                cur_distance = cur_distance*10 + (str[1]-48);
+                i++;
+            }
+            if(to_node !=-1)
+                edges[to_node] = cur_distance;
+    }
+          add_edges_to_graph(current_node, edges);
+}
 
 int main(){
 printf("Enter no. of vertices:");
