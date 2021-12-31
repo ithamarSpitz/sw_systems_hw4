@@ -1,5 +1,4 @@
 #include<stdio.h>
-#include<conio.h> /*????? should try to delete*/
 #define INFINITY 9999
 int n;
 char * graph;
