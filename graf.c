@@ -542,14 +542,14 @@ int main(){
     printf("%d\n", k);
 
     char c[1];
-    c[0] = '2';
-    insertVerticeToGraph(g, c);
+    c[0] = '1';
+    Vertice* a = insertVerticeToGraph(g, c);
     c[0] = '2';
     insertVerticeToGraph(g, c);
     k = size_of_array(g);
     printf("%d\n", k);
     printf("g2arr(g):\n");
-
+    addEdgeToVertice(a, c, 3);
     int* ar = g2arr(g);
     for (int i = 0; i < k*k; i++){
         printf("%d\n",ar[i]);
