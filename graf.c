@@ -538,5 +538,6 @@ int main(){
     char* c = malloc(sizeof(char));
     c[0] = '1';
     insertVerticeToGraph(g, c);
+    printf("insert works")
     printf("%d", size_of_array(g));
 }
