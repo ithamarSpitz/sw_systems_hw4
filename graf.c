@@ -152,7 +152,7 @@ count++;
 return distance[endnode];
 } 
 
-prints receiving Edges of Vertice
+//prints receiving Edges of Vertice
 void printReceivingEdges(Graph* graph, char* nameTo) {
     Vertice* curVertice = graph->firstVertice;
     char found = 0;
