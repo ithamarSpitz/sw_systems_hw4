@@ -72,17 +72,18 @@ void destroyGraph(Graph* graph) {
 }
 
 int size_of_array(Graph* graph){
-    printf("function starts");
+    printf("function starts\n");
     Vertice* contVertice = graph->firstVertice;
     int counter = 0;
-    printf("here it works");
+    printf("here it works\n");
     while (contVertice != NULL) {
-        contVertice = contVertice->nextVertice;
         if(atoi(contVertice->name) > counter){
             counter = atoi(contVertice->name);
         }
+        contVertice = contVertice->nextVertice;
+
     }
-    printf("function ends");
+    printf("function ends\n");
     return counter;
 }
 
