@@ -550,7 +550,8 @@ char b(Graph* graph){
                 return dest_name[0];
         int weight = atoi(get_till_space());
         insertEdgeToGraph(graph, node_name, dest_name, weight);
-    }    
+    } 
+    return '?';   
 }
 
 
