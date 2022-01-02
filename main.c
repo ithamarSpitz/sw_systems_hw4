@@ -145,10 +145,12 @@ void b_function(char* str, int size){
 
 void read_string(){
     char letter;
+    printf("function entered");
     letter = getchar();
     int count = 0;
     char* current_arr;
     while(letter != '\n'){
+        printf("inside the while loop %d",count);
         current_arr[count] = letter;
         count++;
         letter = getchar();
@@ -156,6 +158,7 @@ void read_string(){
     arr = malloc(sizeof(char)*count); 
     for (int i = 0; i < count; i++){
         arr[i] = current_arr[i];
+        printf("inside the for loop");
     }
     arr_size = count;
 }
