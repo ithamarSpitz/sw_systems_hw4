@@ -555,6 +555,6 @@ int main(){
         printf("%d\n",ar[i]);
     }
     k = dijkstra(g,1,2);
-    printf("%d\n", k);
+    printf("\n dijkstra: %d\n", k);
     printf("insert works");
 }
