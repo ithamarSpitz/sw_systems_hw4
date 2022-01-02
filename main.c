@@ -165,7 +165,7 @@ void readfunction(char function){
 
 int main(){
     char start;
-    scanf("%c", start);
+    scanf("%c", &start);
     readfunction(start);
     for (int i = 0; i < arr_size; i++)
     {
