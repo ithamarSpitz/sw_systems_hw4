@@ -520,6 +520,8 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 
 int main(){
     Graph* g = initGraph();
-    insertVerticeToGraph(g, '1');
+    char* c = malloc(sizeof(char))
+    c[0] = '1'
+    insertVerticeToGraph(g, c);
     printf("%d", size_of_array(g));
 }
