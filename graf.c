@@ -528,7 +528,7 @@ char* get_till_space(){
     printf("get_till_space starts\n");
     int letter, i=0;
     char* node_name;
-    while (letter = getchar() != ' '){
+    while ((letter = getchar()) != ' '){
         printf("letter is: %d\n", letter);
         if(is_function(letter)){
             char* arr = (char*) malloc(sizeof(char));
