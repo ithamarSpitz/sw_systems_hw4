@@ -143,7 +143,7 @@ void b_function(char* str, int size){
 }
 
 
-void readString{
+void read_string(){
     char letter;
     int count = 0;
     char* current_arr;
