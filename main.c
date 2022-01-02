@@ -147,8 +147,11 @@ void read_string(){
     char letter;
     printf("function entered");
     letter = getchar();
+    printf("function entered 2");
     int count = 0;
+    printf("function entered 3");
     char* current_arr;
+    printf("function entered 4");
     while(letter != '\n'){
         printf("inside the while loop %d",count);
         current_arr[count] = letter;
