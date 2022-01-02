@@ -168,6 +168,7 @@ int main(){
     printf("start");
     char start;
     scanf("%c", &start);
+    printf("scan scceeded");
     readfunction(start);
     for (int i = 0; i < arr_size; i++)
     {
