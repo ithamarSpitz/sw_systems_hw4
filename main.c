@@ -146,7 +146,7 @@ void b_function(char* str, int size){
 void read_string(){
     int letter;
     printf("function entered 1");
-    letter = (int)getchar();
+    letter = getchar();
     printf("function entered 2");
     int count = 0;
     printf("function entered 3");
