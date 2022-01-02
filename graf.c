@@ -85,9 +85,10 @@ int size_of_array(Graph* graph){
 }
 
 int* g2arr(Graph* graph) {
-    int counter = &size_of_array(graph);
+    int counter = size_of_array(graph);
     printf("function starts");
-    int array[counter*counter];
+    int* array = (int*) malloc(counter * sizeof(int));
+    //int array[counter*counter];
     for (int i = 0; i < counter; i++){
         for (int j = 0; j < counter; j++){
             array[i*counter+j] = 0;
