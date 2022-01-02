@@ -148,7 +148,7 @@ void readfunction(char function){
     char* new_arr;
     arr[0] = function;
     arr_size = 1;
-    scanf("%c",&letter);
+    scanf(" %c",&letter);
     while (letter != 'A'
      && letter != 'B'
       && letter != 'D'
@@ -160,14 +160,14 @@ void readfunction(char function){
             new_arr[i] = arr[i];
         }
         arr = new_arr;
-        scanf("%c",&letter);
+        scanf(" %c",&letter);
     }
 }
 
 int main(){
     printf("start");
     char start;
-    scanf("%c", &start);
+    scanf(" %c", &start);
     printf("scan scceeded");
     readfunction(start);
     for (int i = 0; i < arr_size; i++)
