@@ -546,7 +546,7 @@ int main(){
     char c[1];
     c[0] = '1';
     Vertice* v =  insertVerticeToGraph(g, c);
-    int k = size_of_array(g);
+    k = size_of_array(g);
     printf("%d", k);
     printf("insert works");
 }
