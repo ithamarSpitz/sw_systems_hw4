@@ -74,13 +74,14 @@ void destroyGraph(Graph* graph) {
 int size_of_array(Graph* graph){
     Vertice* contVertice = graph->firstVertice;
     int counter = 0;
-
+    printf("here it works");
     while (contVertice != NULL) {
         contVertice = contVertice->nextVertice;
         if(atoi(contVertice->name) > counter){
             counter = atoi(contVertice->name);
         }
     }
+    printf("function ends");
     return counter;
 }
 
