@@ -4,7 +4,7 @@
 int n; // number of nodes or the number of the biggest node number
 int** graph; // edges of the graph if there is no edge we use 0
 int arr_size;
-int* arr;
+char* arr;
 
 int** create_graph(int size){
     int** new_graph = malloc(sizeof(int*)* size);
@@ -169,7 +169,7 @@ int main(){
     readfunction(start);
     for (int i = 0; i < arr_size; i++)
     {
-        printf("c", arr[i]);
+        printf("%c", arr[i]);
     }
     
 
