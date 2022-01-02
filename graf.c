@@ -553,6 +553,7 @@ int main(){
     for (int i = 0; i < k*k; i++){
         printf("%d\n",ar[i]);
     }
-    
+    k = dijkstra(g,1,2);
+        printf("%d\n", k);
     printf("insert works");
 }
