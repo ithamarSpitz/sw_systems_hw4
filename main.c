@@ -142,34 +142,27 @@ void b_function(char* str, int size){
           add_edges_to_graph(current_node, edges);
 }
 
-void readfunction(char function){
-    printf("ini readfunction");
+
+void readString{
     char letter;
-    char* new_arr;
-    arr[0] = function;
-    arr_size = 1;
-    scanf(" %c",&letter);
-    while (letter != 'A'
-     && letter != 'B'
-      && letter != 'D'
-       && letter != 'S' 
-       && letter != 'T'){
-        arr_size++;
-        new_arr = malloc(sizeof(char)*arr_size);
-        for (int i = 0; i < arr_size-1; i++){
-            new_arr[i] = arr[i];
-        }
-        arr = new_arr;
-        scanf(" %c",&letter);
+    int count = 0;
+    char* current_arr;
+    while(scanf("%c",&letter) != "\n"){
+        current_arr[count] = letter;
+        count++;
     }
+    arr = malloc(sizeof(char)*count); 
+    for (int i = 0; i < count; i++){
+        arr[i] = current_arr[i];
+    }
+    arr_size = count;
 }
+    
 
 int main(){
     printf("start");
-    char start;
-    scanf(" %c", &start);
+    readString();
     printf("scan scceeded");
-    readfunction(start);
     for (int i = 0; i < arr_size; i++)
     {
         printf("%c", arr[i]);
