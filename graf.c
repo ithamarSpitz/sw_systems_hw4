@@ -86,7 +86,7 @@ int size_of_array(Graph* graph){
 
 int* g2arr(Graph* graph) {
     int counter = size_of_array(graph);
-    int* array = (int*) malloc(counter * sizeof(int));
+    int* array = (int*) malloc(counter* counter * sizeof(int));
     //int array[counter*counter];
     for (int i = 0; i < counter; i++){
         for (int j = 0; j < counter; j++){
@@ -110,6 +110,7 @@ int* g2arr(Graph* graph) {
 
 int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
+printf("n: %d", n);
 int* g = g2arr(graph);
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
