@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #define INFINITY 9999
 int n; // number of nodes or the number of the biggest node number
 int** graph; // edges of the graph if there is no edge we use 0
@@ -153,7 +154,7 @@ void readfunction(char function){
        && letter != 'S' 
        && letter != 'T'){
         arr_size++;
-        new_arr = = malloc(sizeof(char)*arr_size);
+        new_arr = malloc(sizeof(char)*arr_size);
         for (int i = 0; i < arr_size-1; i++){
             new_arr[i] = arr[i];
         }
