@@ -86,13 +86,14 @@ int size_of_array(Graph* graph){
 
 int* g2arr(Graph* graph) {
     int counter = size_of_array(graph);
-
+    printf("function starts");
     int array[counter*counter];
     for (int i = 0; i < counter; i++){
         for (int j = 0; j < counter; j++){
             array[i*counter+j] = 0;
         }
     }
+    printf("function cleard the array");
 
     Vertice* curVertice = graph->firstVertice;
     while (curVertice != NULL) {
@@ -103,6 +104,7 @@ int* g2arr(Graph* graph) {
         }
         curVertice = curVertice->nextVertice;
     }
+        printf("function ends");
     return array;
 }
 
@@ -543,6 +545,7 @@ int main(){
     Vertice* v =  insertVerticeToGraph(g, c);
     k = size_of_array(g);
     printf("%d\n", k);
+
         int* ar = g2arr(g);
     for (int i = 0; i < k*k; i++){
         printf("%d\n",ar[i]);
