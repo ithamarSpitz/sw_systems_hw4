@@ -515,6 +515,14 @@ int is_function(int letter){
         return 0;
 }
 
+void wait_for_space(){
+    int letter = 0;
+    while (letter != ' '){
+        letter = getchar();
+    }
+    return;
+}
+
 
 char* get_till_space(){
     printf("get_till_space starts\n");
@@ -542,7 +550,7 @@ char* get_till_space(){
 }
 
 char b(Graph* graph){
-    getchar();
+    wait_for_space();
     char* node_name = get_till_space();
     int letter;
     while(1){
