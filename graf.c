@@ -116,7 +116,7 @@ int visited[n],count,mindistance,nextnode,i,j;
 for(i=0;i<n;i++)
 for(j=0;j<n;j++)
 if(g[i*n+j]==0)
-cost[i*n+j]=INFINITY;
+cost[i][j]=INFINITY;
 else
 cost[i][j]=g[i*n+j];
 //initialize pred[],distance[] and visited[]
