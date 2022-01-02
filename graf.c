@@ -77,8 +77,8 @@ int size_of_array(Graph* graph){
 
     while (contVertice != NULL) {
         contVertice = contVertice->nextVertice;
-        if(contVertice->name > counter){
-            counter = contVertice->name;
+        if(atoi(contVertice->name) > counter){
+            counter = atoi(contVertice->name);
         }
     }
     return counter;
@@ -98,7 +98,7 @@ int** g2arr(Graph* graph) {
     while (curVertice != NULL) {
         Edge* curEdge = curVertice->firstEdge;
         while (curEdge != NULL) {
-            array[curVertice->name-48][curEdge->name-48] = curEdge->weight;
+            array[atoi(curVertice->name)-48][atoi(curEdge->name)-48] = curEdge->weight;
             curEdge = curEdge->nextEdge;
         }
         curVertice = curVertice->nextVertice;
