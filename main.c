@@ -145,11 +145,13 @@ void b_function(char* str, int size){
 
 void read_string(){
     char letter;
+    scanf("%c",&letter)
     int count = 0;
     char* current_arr;
-    while(scanf("%c",&letter) != "\n"){
+    while(letter != "\n"){
         current_arr[count] = letter;
         count++;
+        scanf("%c",&letter)
     }
     arr = malloc(sizeof(char)*count); 
     for (int i = 0; i < count; i++){
@@ -161,7 +163,7 @@ void read_string(){
 
 int main(){
     printf("start");
-    readString();
+    read_string();
     printf("scan scceeded");
     for (int i = 0; i < arr_size; i++)
     {
