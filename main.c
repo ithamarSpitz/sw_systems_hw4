@@ -148,7 +148,7 @@ void read_string(){
     letter = getchar();
     int count = 0;
     char* current_arr;
-    while(&letter != "\n"){
+    while(&letter != '\n'){
         current_arr[count] = letter;
         count++;
         letter = getchar();
