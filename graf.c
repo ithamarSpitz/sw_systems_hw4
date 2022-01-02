@@ -86,27 +86,28 @@ int size_of_array(Graph* graph){
     return counter;
 }
 
-// int* g2arr(Graph* graph) {
-//     int counter = size_of_array(graph);
+int* g2arr(Graph* graph) {
+    int counter = size_of_array(graph);
 
-//     int array[counter*counter];
-//     for (int i = 0; i < counter; i++){
-//         for (int j = 0; j < counter; j++){
-//             array[i*counter+j] = 0;
-//         }
-//     }
+    int array[counter*counter];
+    for (int i = 0; i < counter; i++){
+        for (int j = 0; j < counter; j++){
+            array[i*counter+j] = 0;
+        }
+    }
 
-//     Vertice* curVertice = graph->firstVertice;
-//     while (curVertice != NULL) {
-//         Edge* curEdge = curVertice->firstEdge;
-//         while (curEdge != NULL) {
-//             array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
-//             curEdge = curEdge->nextEdge;
-//         }
-//         curVertice = curVertice->nextVertice;
-//     }
-//     return array;
-// }
+    Vertice* curVertice = graph->firstVertice;
+    while (curVertice != NULL) {
+        Edge* curEdge = curVertice->firstEdge;
+        while (curEdge != NULL) {
+            array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
+            curEdge = curEdge->nextEdge;
+        }
+        curVertice = curVertice->nextVertice;
+    }
+    return array;
+}
+
 // int dijkstra(Graph* graph, int startnode, int endnode){
 // int n = size_of_array(graph);
 // int* g = g2arr(graph);
@@ -537,9 +538,15 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 int main(){
     Graph* g = initGraph();
     int k = size_of_array(g);
+    printf("%d", k);
+    // for (int i = 0; i < k*k; i++){
+    //     printf()
+    // }
+    
     char c[1];
     c[0] = '1';
     Vertice* v =  insertVerticeToGraph(g, c);
+    int k = size_of_array(g);
+    printf("%d", k);
     printf("insert works");
-    //printf("%d", size_of_array(g));
 }
