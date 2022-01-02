@@ -508,6 +508,7 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 }
 
 int is_function(int letter){
+    printf("is_function? %d\n", letter);
     if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n')
         return 1;
     else
@@ -516,6 +517,7 @@ int is_function(int letter){
 
 
 char* get_till_space(){
+    printf("get_till_space starts");
     int letter, i=0;
     char* node_name;
     while (letter = getchar() != ' '){
@@ -532,6 +534,10 @@ char* get_till_space(){
     for (int j = 0; j < i; j++){
         array[j]=node_name[j];
     }
+    char* arr = (char*) malloc(sizeof(char));
+    arr[0] = letter;
+    printf("get_till_space ends");
+    return arr;
 }
 
 char b(Graph* graph){
