@@ -517,3 +517,9 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     printf("Del-vertex |%s|->%u->|%s|\n\n", nameFrom, weight, nameTo);
     return 0;
 }
+
+int main(){
+    Graph* g = initGraph();
+    insertVerticeToGraph(g, '1');
+    printf("%d", size_of_array(g));
+}

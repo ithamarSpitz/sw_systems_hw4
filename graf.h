@@ -46,7 +46,9 @@ Graph* initGraph();
 void freeEdge(Edge* edge);
 void freeVertice(Vertice* vertice);
 void destroyGraph(Graph* graph);
-void printGraph(Graph* graph, char* out);
+int size_of_array(Graph* graph);
+int** g2arr(Graph* graph);
+int dijkstra(Graph* graph, int startnode, int endnode);
 
 Vertice* findVerticeInGraph(Graph* graph, char* name);
 void find2VerticesInGraph(Graph* graph, char* name1, char* name2, Vertice* foundVertices[2]);
