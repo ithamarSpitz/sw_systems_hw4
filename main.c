@@ -2,6 +2,8 @@
 #define INFINITY 9999
 int n; // number of nodes or the number of the biggest node number
 int** graph; // edges of the graph if there is no edge we use 0
+int arr_size;
+int* arr;
 
 int** create_graph(int size){
     int** new_graph = malloc(sizeof(int*)* size);
@@ -139,20 +141,50 @@ void b_function(char* str, int size){
           add_edges_to_graph(current_node, edges);
 }
 
+void readfunction(char function){
+    char letter;
+    char* new_arr;
+    arr[0] = function;
+    arr_size = 1;
+    scanf("%c",&letter);
+    while (letter != 'A'
+     && letter != 'B'
+      && letter != 'D'
+       && letter != 'S' 
+       && letter != 'T'){
+        arr_size++;
+        new_arr = = malloc(sizeof(char)*arr_size);
+        for (int i = 0; i < arr_size-1; i++){
+            new_arr[i] = arr[i];
+        }
+        arr = new_arr;
+        scanf("%c",&letter);
+    }
+}
+
 int main(){
-printf("Enter no. of vertices:");
-scanf("%d",&n);
+    char start;
+    scanf("%c", start);
+    readfunction(start);
+    for (int i = 0; i < arr_size; i++)
+    {
+        printf("c", arr[i]);
+    }
+    
+
+// printf("Enter no. of vertices:");
+// scanf("%d",&n);
 
 
-int s,d;
-printf("\nEnter the adjacency matrix:\n");
-for(int i=0;i<n;i++)
-for(int j=0;j<n;j++)
-scanf("%d",&G[i][j]);
+// int s,d;
+// printf("\nEnter the adjacency matrix:\n");
+// for(int i=0;i<n;i++)
+// for(int j=0;j<n;j++)
+// scanf("%d",&G[i][j]);
 
-printf("\nEnter the starting node:");
-scanf("%d",&s);
-scanf("%d",&d);
-dijkstra(G,n,s,d);
-return 0;
+// printf("\nEnter the starting node:");
+// scanf("%d",&s);
+// scanf("%d",&d);
+// dijkstra(G,n,s,d);
+// return 0;
 }
