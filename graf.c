@@ -539,16 +539,17 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 int main(){
     Graph* g = initGraph();
     int k = size_of_array(g);
-    printf("%d", k);
-    int* ar = g2arr(g);
-    for (int i = 0; i < k*k; i++){
-        printf("%d\n",ar[i]);
-    }
-    
+    printf("%d\n", k);
+
     char c[1];
     c[0] = '1';
     Vertice* v =  insertVerticeToGraph(g, c);
     k = size_of_array(g);
-    printf("%d", k);
+    printf("%d\n", k);
+        int* ar = g2arr(g);
+    for (int i = 0; i < k*k; i++){
+        printf("%d\n",ar[i]);
+    }
+    
     printf("insert works");
 }
