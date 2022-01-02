@@ -540,9 +540,10 @@ int main(){
     Graph* g = initGraph();
     int k = size_of_array(g);
     printf("%d", k);
-    // for (int i = 0; i < k*k; i++){
-    //     printf()
-    // }
+    int* ar = g2arr(g);
+    for (int i = 0; i < k*k; i++){
+        printf("%d\n",ar[i]);
+    }
     
     char c[1];
     c[0] = '1';
