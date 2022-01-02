@@ -85,7 +85,7 @@ int size_of_array(Graph* graph){
 }
 
 int* g2arr(Graph* graph) {
-    int counter = size_of_array(graph);
+    int counter = &size_of_array(graph);
     printf("function starts");
     int array[counter*counter];
     for (int i = 0; i < counter; i++){
