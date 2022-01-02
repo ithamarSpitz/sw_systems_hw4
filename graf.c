@@ -84,7 +84,7 @@ int size_of_array(Graph* graph){
     return counter;
 }
 
-int** g2arr(Graph* graph) {
+int[][] g2arr(Graph* graph) {
     int counter = size_of_array(graph);
 
     int array[counter][counter];
@@ -107,7 +107,7 @@ int** g2arr(Graph* graph) {
 }
 int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
-int** g = g2arr(graph);
+int g[][] = g2arr(graph);
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
 //pred[] stores the predecessor of each node
