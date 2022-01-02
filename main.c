@@ -11,15 +11,15 @@ int** create_graph(int size){
     for (int i = 0; i < size; i++){
         new_graph[i] = malloc(sizeof(int)*size);
     }
-    for (int i = 0; i < size; i++)
-        for (int j = 0; j < count; j++)
+    // for (int i = 0; i < size; i++)
+    //     for (int j = 0; j < size; j++)
 
     return new_graph;
 }
 
 
 
-void add_edges_to_graph(int node_number, *int edges){
+void add_edges_to_graph(int node_number, int* edges){
     // this function add the node and its edges, the array above it is its edges (were is no edge we use 0)
     int** new_graph;
     if(node_number > n){
