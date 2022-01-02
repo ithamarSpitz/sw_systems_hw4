@@ -75,8 +75,8 @@ int size_of_array(Graph* graph){
     Vertice* contVertice = graph->firstVertice;
     int counter = 0;
     while (contVertice != NULL) {
-        if(atoi(contVertice->name) > counter){
-            counter = atoi(contVertice->name);
+        if(atoi(contVertice->name)+1 > counter){
+            counter = atoi(contVertice->name)+1;
         }
         contVertice = contVertice->nextVertice;
 
