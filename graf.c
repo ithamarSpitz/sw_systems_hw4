@@ -177,6 +177,20 @@ void printReceivingEdges(Graph* graph, char* nameTo) {
         printf("\n");
 }
 
+Vertice* findVerticeInGraph(Graph* graph, char* name) {
+    Vertice* curVertice = graph->firstVertice;
+    while (curVertice != NULL) {
+        if (strcmp(curVertice->name, name) == 0) {
+            return curVertice;
+        } else if (strcmp(name, curVertice->name) < 0)
+            return NULL;
+
+        curVertice = curVertice->nextVertice;
+    }
+
+    return NULL;
+}
+
 
 void find2VerticesInGraph(Graph* graph, char* name1, char* name2, Vertice* foundVertices[2]) {
     Vertice *curVertice1 = graph->firstVertice, *curVertice2 = graph->firstVertice;
