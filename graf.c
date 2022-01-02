@@ -545,7 +545,7 @@ int main(){
     Vertice* v =  insertVerticeToGraph(g, c);
     k = size_of_array(g);
     printf("%d\n", k);
-    printf("g2arr(g):\n", k);
+    printf("g2arr(g):\n");
 
     int* ar = g2arr(g);
     for (int i = 0; i < k*k; i++){
