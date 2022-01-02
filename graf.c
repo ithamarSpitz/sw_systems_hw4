@@ -86,7 +86,6 @@ int size_of_array(Graph* graph){
 
 int* g2arr(Graph* graph) {
     int counter = size_of_array(graph);
-    printf("function starts");
     int* array = (int*) malloc(counter * sizeof(int));
     //int array[counter*counter];
     for (int i = 0; i < counter; i++){
@@ -100,12 +99,12 @@ int* g2arr(Graph* graph) {
     while (curVertice != NULL) {
         Edge* curEdge = curVertice->firstEdge;
         while (curEdge != NULL) {
+            printf("atoi(curVertice->name): %d\n atoi(curEdge->name):%d",atoi(curVertice->name),atoi(curEdge->name));
             array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
             curEdge = curEdge->nextEdge;
         }
         curVertice = curVertice->nextVertice;
     }
-        printf("function ends");
     return array;
 }
 
