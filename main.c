@@ -143,6 +143,7 @@ void b_function(char* str, int size){
 }
 
 void readfunction(char function){
+    printf("ini readfunction")
     char letter;
     char* new_arr;
     arr[0] = function;
@@ -164,6 +165,7 @@ void readfunction(char function){
 }
 
 int main(){
+    printf("start")
     char start;
     scanf("%c", &start);
     readfunction(start);
