@@ -71,19 +71,19 @@ void destroyGraph(Graph* graph) {
     return;
 }
 
-int size_of_array(Graph* graph){
-    Vertice* contVertice = graph->firstVertice;
-    int counter = 0;
-    printf("here it works");
-    while (contVertice != NULL) {
-        contVertice = contVertice->nextVertice;
-        if(atoi(contVertice->name) > counter){
-            counter = atoi(contVertice->name);
-        }
-    }
-    printf("function ends");
-    return counter;
-}
+// int size_of_array(Graph* graph){
+//     Vertice* contVertice = graph->firstVertice;
+//     int counter = 0;
+//     printf("here it works");
+//     while (contVertice != NULL) {
+//         contVertice = contVertice->nextVertice;
+//         if(atoi(contVertice->name) > counter){
+//             counter = atoi(contVertice->name);
+//         }
+//     }
+//     printf("function ends");
+//     return counter;
+// }
 
 // int* g2arr(Graph* graph) {
 //     int counter = size_of_array(graph);
@@ -539,5 +539,5 @@ int main(){
     c[0] = '1';
     Vertice* v =  insertVerticeToGraph(g, c);
     printf("insert works");
-    printf("%d", size_of_array(g));
+    //printf("%d", size_of_array(g));
 }
