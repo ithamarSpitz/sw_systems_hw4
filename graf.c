@@ -375,7 +375,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
         graph->lastVertice = graph->firstVertice;
         graph->verticesNum++;
-        printf("Inserted |%s|\n\n", name);
+        printf("Inserted woooooooooooooohoooooooooooooooo|%s|\n\n", name);
         return graph->firstVertice;
     } else {
         Vertice* curVertice = graph->firstVertice;
@@ -537,7 +537,7 @@ int main(){
     Graph* g = initGraph();
     char* c = malloc(sizeof(char));
     c[0] = '1';
-    insertVerticeToGraph(g, c);
+    Vertice* v =  insertVerticeToGraph(g, c);
     printf("insert works");
     printf("%d", size_of_array(g));
 }
