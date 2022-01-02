@@ -62,12 +62,12 @@ void destroyGraph(Graph* graph) {
         if (graph->verticesNum > 0) {
             freeVertice(graph->firstVertice);
         } else {
-            printf("Graph is empty\n");
+//            printf("Graph is empty\n");
             return;
         }
         free(graph);
     }
-    printf("Graph was destroyed successfully\n");
+//    printf("Graph was destroyed successfully\n");
     return;
 }
 
@@ -93,13 +93,13 @@ int* g2arr(Graph* graph) {
             array[i*counter+j] = 0;
         }
     }
-    printf("function cleard the array");
+//    printf("function cleard the array");
 
     Vertice* curVertice = graph->firstVertice;
     while (curVertice != NULL) {
         Edge* curEdge = curVertice->firstEdge;
         while (curEdge != NULL) {
-            printf("atoi(curVertice->name): %d\n atoi(curEdge->name):%d",atoi(curVertice->name),atoi(curEdge->name));
+//            printf("atoi(curVertice->name): %d\n atoi(curEdge->name):%d",atoi(curVertice->name),atoi(curEdge->name));
             array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
             curEdge = curEdge->nextEdge;
         }
@@ -110,7 +110,6 @@ int* g2arr(Graph* graph) {
 
 int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
-printf("n: %d", n);
 int* g = g2arr(graph);
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
@@ -151,34 +150,6 @@ pred[i]=nextnode;
 count++;
 }
 return distance[endnode];
-} 
-
-//prints receiving Edges of Vertice
-void printReceivingEdges(Graph* graph, char* nameTo) {
-    Vertice* curVertice = graph->firstVertice;
-    char found = 0;
-    while (curVertice != NULL) {
-        Edge* curEdge = curVertice->firstEdge;
-        while (curEdge != NULL) {
-            if (strcmp(curEdge->name, nameTo) == 0) {
-                if (found == 0) {
-                    printf("Rec-edges ");
-                    printf("|%s|->%u->|%s|\n", curVertice->name, curEdge->weight, curEdge->name);
-                    found = 1;
-                } else
-                    printf("          |%s|->%u->|%s|\n", curVertice->name, curEdge->weight, curEdge->name);
-            }
-
-            curEdge = curEdge->nextEdge;
-        }
-
-        curVertice = curVertice->nextVertice;
-    }
-
-    if (found == 0)
-        printf("No-rec-edges %s\n\n", nameTo);
-    else
-        printf("\n");
 }
 
 Vertice* findVerticeInGraph(Graph* graph, char* name) {
@@ -369,7 +340,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
     Vertice* foundVertice = findVerticeInGraph(graph, name);
 
     if (foundVertice != NULL) {
-        printf("Node |%s| Exists;\n\n", name);
+//        printf("Node |%s| Exists;\n\n", name);
         return NULL;
     }
 
@@ -378,7 +349,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
         graph->lastVertice = graph->firstVertice;
         graph->verticesNum++;
-        printf("Inserted woo|%s|\n\n", name);
+//        printf("Inserted woo|%s|\n\n", name);
         return graph->firstVertice;
     } else {
         Vertice* curVertice = graph->firstVertice;
@@ -391,7 +362,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
             curVertice->prevVertice = verticeToInsert;
             graph->firstVertice = verticeToInsert;
             graph->verticesNum++;
-            printf("Inserted |%s|\n\n", name);
+//            printf("Inserted |%s|\n\n", name);
             return graph->firstVertice;
         } else {
             while (curVertice != NULL) {
@@ -404,7 +375,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
                         curVertice->nextVertice->prevVertice = verticeToInsert;
                         curVertice->nextVertice = verticeToInsert;
                         graph->verticesNum++;
-                        printf("Inserted |%s|\n\n", name);
+//                        printf("Inserted |%s|\n\n", name);
 
                         return curVertice->nextVertice;
                     }
@@ -414,7 +385,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
                     graph->lastVertice = graph->lastVertice->nextVertice;
                     graph->verticesNum++;
-                    printf("Inserted |%s|\n\n", name);
+//                    printf("Inserted |%s|\n\n", name);
                     return graph->lastVertice;
                 }
 
@@ -444,7 +415,7 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
 
     addEdgeToVertice(verticeTarget, name2, weight);
     graph->edgesNum++;
-    printf("Inserted |%s|->%u->|%s|\n\n", name1, weight, name2);
+//    printf("Inserted |%s|->%u->|%s|\n\n", name1, weight, name2);
     return;
 }
 
@@ -480,9 +451,9 @@ void deleteVerticeFromGraph(Graph* graph, char* name) {
 
         graph->verticesNum--;
 
-        printf("Deleted |%s|\n\n", name);
+//        printf("Deleted |%s|\n\n", name);
     } else
-        printf("Node |%s| does not exist - abort-d;\n\n", name);
+//        printf("Node |%s| does not exist - abort-d;\n\n", name);
 
     return;
 }
@@ -493,19 +464,19 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     Vertice* verticeTo = findVerticeInGraph(graph, nameTo);
 
     if (verticeFrom == NULL) {
-        printf("|%s| does not exist - abort-l;\n\n", nameFrom);
+//        printf("|%s| does not exist - abort-l;\n\n", nameFrom);
         return 1;
     }
 
     if (verticeTo == NULL) {
-        printf("|%s| does not exist - abort-l;\n\n", nameTo);
+//        printf("|%s| does not exist - abort-l;\n\n", nameTo);
         return 1;
     }
 
     Edge* edgeToDelete = findEdgeOfVertice(graph, verticeFrom, nameTo, weight);  // no weight comparison if weight == -1
 
     if (edgeToDelete == NULL) {
-        printf("|%s|->%u->|%s| does not exist - abort-l;\n\n", nameFrom, weight, nameTo);
+//        printf("|%s|->%u->|%s| does not exist - abort-l;\n\n", nameFrom, weight, nameTo);
         return 1;
     }
 
@@ -532,10 +503,109 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     edgeToDelete = NULL;
 
     verticeFrom->edgesNum--;
-    printf("Del-vertex |%s|->%u->|%s|\n\n", nameFrom, weight, nameTo);
+//    printf("Del-vertex |%s|->%u->|%s|\n\n", nameFrom, weight, nameTo);
     return 0;
 }
 
+int is_function(int letter){
+    if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n')
+        return 1;
+    else
+        return 0;
+}
+
+
+char* get_till_space(){
+    int letter, i=0;
+    char* node_name;
+    while (letter = getchar() != ' '){
+        if(is_function(letter)){
+            char* arr = (char*) malloc(sizeof(char));
+            arr[0] = letter;
+            return arr;
+        }
+
+        node_name[i] = letter;
+        i++;
+    }
+    char* array = (char*) malloc( i* sizeof(char));
+    for (int j = 0; j < i; j++){
+        array[j]=node_name[j];
+    }
+}
+
+char b(Graph* graph){
+    getchar();
+    char* node_name = get_till_space();
+    int letter;
+    while(1){
+        char* dest_name = get_till_space();
+            if(is_function(dest_name[0]))
+                return dest_name[0];
+        int weight = atoi(get_till_space());
+        insertEdgeToGraph(graph, node_name, dest_name, weight);
+    }    
+}
+
+
+// void read_input(){
+//     char letter, tempVertice, temp;
+//     letter = getchar()+'0';
+//     while(letter != '\n'){
+//         if(letter=='A'){
+//             while(letter=getchar()){
+//                 if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
+//                     break;
+//                 }
+//                 if(letter == ' '){
+//                     continue;
+//                 }
+//                 if(letter == 'n'){
+//                     letter = getchar();
+//                     tempVertice = (letter = getchar());
+//                     while((letter=getchar()) != 'n'){
+//                         if(letter == ' '){
+//                             continue;
+//                         }
+//                         if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
+//                         break;
+//                         }
+//                         temp = letter;
+//                         letter = getchar();
+//                         insertEdgeToGraph(graph, tempVertice, temp, (letter = getchar()));
+//                     }
+//                 }
+                
+                
+//             }
+
+//         }
+//         if(letter == 'B'){
+//             letter = getchar();
+//             tempVertice = (letter = getchar());
+//             while((letter=getchar())){
+//                 if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
+//                     break;
+//                 }
+//                 if(letter == ' '){
+//                     continue;
+//                 }
+//                 temp = letter;
+//                 letter = getchar();
+//                 insertEdgeToGraph(graph, tempVertice, temp, (letter = getchar()));
+
+                
+//             }
+//         }
+
+
+//         if(letter == '\n'){
+//             break;
+//         }
+//         letter = getchar();
+//     }
+
+// }
 int main(){
     Graph* g = initGraph();
     int k = size_of_array(g);
@@ -557,4 +627,7 @@ int main(){
     k = dijkstra(g,1,2);
     printf("\n dijkstra: %d\n", k);
     printf("insert works");
+    destroyGraph(g);
+    g = initGraph();
+    b(g);
 }
