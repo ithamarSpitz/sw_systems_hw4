@@ -1,0 +1,20 @@
+all: graph graf.a
+
+graf.o: graf.c graf.h
+	gcc -Wall -g -c graf.c -lm
+
+main.o: main.c graf.h
+	gcc -Wall -g -c main.c
+
+graf.a: graf.o
+	ar -rcs lib.a graf.o
+
+graph: main.o graf.a
+	gcc -Wall -g -o graph main.o graf.a -lm
+
+.PHONY: clean
+
+clean:
+	rm -f *.o *.a graph
+
+

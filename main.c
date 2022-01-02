@@ -1,10 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 #define INFINITY 9999
+
 int n; // number of nodes or the number of the biggest node number
 int** graph; // edges of the graph if there is no edge we use 0
 int arr_size;
 char* arr;
+
 
 int** create_graph(int size){
     int** new_graph = malloc(sizeof(int*)* size);
@@ -33,6 +36,7 @@ void add_edges_to_graph(int node_number, int* edges){
     for (int i = 0; i < n; i++){
         new_graph[node_number][i] = edges[i];
     }
+    free(graph);
     graph = new_graph;
 }
 
@@ -142,11 +146,10 @@ void b_function(char* str, int size){
           add_edges_to_graph(current_node, edges);
 }
 
-
 void read_string(){
     int letter;
     printf("function entered 1");
-    // letter = getchar();
+    letter = getchar();
     printf("function entered 2");
     int count = 0;
     printf("function entered 3");
@@ -168,7 +171,7 @@ void read_string(){
     
 
 int main(){
-    printf("start");
+    printf("start\n");
     read_string();
     printf("scan scceeded");
     for (int i = 0; i < arr_size; i++)
