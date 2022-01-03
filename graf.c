@@ -550,14 +550,19 @@ char* get_till_space(){
 }
 
 char b(Graph* graph){
+    printf("\nwait_for_space\n");
     wait_for_space();
+    printf("\nwait_for_node_name");
     char* node_name = get_till_space();
+    printf("\nnode_name is %s", node_name);
     int letter;
     while(1){
         char* dest_name = get_till_space();
-            if(is_function(dest_name[0]))
-                return dest_name[0];
+        printf("\ndest name is: %s", dest_name);
+        if(is_function(dest_name[0]))
+            return dest_name[0];
         int weight = atoi(get_till_space());
+        printf("\nweight is: %d", weight);
         insertEdgeToGraph(graph, node_name, dest_name, weight);
     } 
     return '?';   
