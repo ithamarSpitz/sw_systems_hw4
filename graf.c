@@ -539,7 +539,7 @@ char *inputString(){
     }
     str[len++]='\0';
 
-    return realloc(str, sizeof(*str)*len);
+    return realloc(str, sizeof(*str)*len+1);
 }
 
 int* convertStrtoArr(char* str){
