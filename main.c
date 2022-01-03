@@ -76,6 +76,33 @@ int* func_to_arr(char* str, int start){
     return convertStrtoArr(dest);
 }
 
+void b(int* arr){
+    int number = arr[1];
+    char* name;   
+    printf("part 5"); ////////////////////////////////////////////////// 
+    name = realloc(NULL, sizeof(char)*10);   ///////////////////////////////
+    printf("part 2");
+    for (int i = 0; i < 10; i++)
+        name[i] = ' ';
+    //snprintf (name, 10*sizeof(char), "%d",number);
+    itoa(number, name, 10);
+    printf("deleteVerticeFromGraph");
+    //deleteVerticeFromGraph(graph, name, 0);
+    char* dest_name;    
+    dest_name = realloc(NULL, sizeof(char)*10);
+    printf("part 3"); //////////////////////////////////////////////////////
+    for (int i = 2; i < arr[0]; i+=2){
+        for (int i = 0; i < 10; i++)
+            name[i] = ' ';
+        number = arr[i];
+        //snprintf (dest_name, 10*sizeof(char), "%d",number);
+        itoa(number,dest_name,10);
+        int weight = arr[i+1];
+        printf("insertEdgeToGraph");
+        //insertEdgeToGraph(graph, name, dest_name, weight);
+    }
+}
+
 void function_finder(char* str){
     for (int i = 0; i < strlen(str); i++){
     switch (str[i]){
@@ -86,7 +113,8 @@ void function_finder(char* str){
         func_to_arr(str, i);
         break;
     case 'B':
-        func_to_arr(str, i);
+        int* a = func_to_arr(str, i);
+        b(a);
         break;
     case 'D':
         func_to_arr(str, i);
