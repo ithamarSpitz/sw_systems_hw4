@@ -28,6 +28,7 @@ int main(){
     printf("input string : ");
     m = inputString(stdin, 10);
     printf("%s\n", m);
+    printf("length is :\n%d", sizeof(m)/sizeof(char));
 
     free(m);
     return 0;
