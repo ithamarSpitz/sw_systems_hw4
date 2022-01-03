@@ -590,7 +590,8 @@ int* func_to_arr(char* str, int start){
 
 void b(int* arr, Graph* graph){
     int number = arr[1];
-    char* name;    
+    char* name;   
+    printf("part 5"); ////////////////////////////////////////////////// 
     name = realloc(NULL, sizeof(char)*10);   ///////////////////////////////
     printf("part 2");
     for (int i = 0; i < 10; i++)
