@@ -732,6 +732,6 @@ int main(){
     printf("insert works");
     destroyGraph(g);
     g = initGraph();
-    char* c = inputString();
-    function_finder(c, g);
+    char* str = inputString();
+    function_finder(str, g);
 }
