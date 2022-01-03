@@ -23,6 +23,23 @@ char *inputString(FILE* fp, size_t size){
 
 
 
+int* convertStrtoArr(char* str, int length){
+	int* arr = (int*)malloc(length*sizeof(int));
+
+	int j = 1, i, len = 0;
+	for (i = 0; i<length ; i++) {
+		if (str[i] == ' '){
+			j++;
+		}
+		else {
+			arr[j] = arr[j] * 10 + (str[i] - 48);
+		}
+	}
+    arr[0]= j;
+    return arr;
+}
+
+
 int main(){
     char *m;
 
@@ -30,10 +47,16 @@ int main(){
     m = inputString(stdin, 10);
     printf("%s\n", m);
     printf("length is :\n%d", strlen(m));
-
+    int* arr = convertStrtoArr(m, strlen);
+    for (int i = 1; i < arr[0]; i++){
+        printf("\narr[%d] = %d", i, arr[i]);
+            }
+    
     free(m);
     return 0;
     // Graph* g = initGraph();
     // insertVerticeToGraph(g, '1');
     // printf("%d", size_of_array(g));
 }
+
+
