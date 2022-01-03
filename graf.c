@@ -537,7 +537,7 @@ char *inputString(int* str_size){
         }
     }
     str[len++]='\n';
-    str_size[0] = (int)len;
+    str_size[0] = (int)len+1;
     return realloc(str, sizeof(*str)*len+1);
 }
 
