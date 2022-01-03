@@ -734,7 +734,7 @@ int main(){
     printf("insert works");
     destroyGraph(g);
     g = initGraph();
-    int* size = (int*)malloc(sizeof(int));
+    int* size = (int*)malloc(sizeof(int)*2);
     char* str = inputString(size);
     function_finder(str, g, size);
 }
