@@ -22,8 +22,6 @@ char *inputString(){
     return realloc(str, sizeof(*str)*len);
 }
 
-
-
 int* convertStrtoArr(char* str){
     int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
@@ -68,6 +66,18 @@ int find_next_func(char* str, int start){
     }
     return strlen(str);
 }
+void print_func_arr(char* str, int start){
+    printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(start+1));
+    int length = find_next_func(start+1) - start+1;
+    char dest[length] ="";
+    strncpy(dest, str+start+1, length)
+    int* arr = convertStrtoArr(dest)
+    printf("length of arr is: %d\n", arr[0]);
+    for (int i = 1; i < arr[0]; i++){
+        printf("arr[%d] = %d\n", i, arr[i]);
+            }
+    //return realloc(dest, sizeof(*dest)*length);
+}
 
 void function_finder(char* str){
     for (int i = 0; i < strlen(str); i++)
@@ -101,13 +111,13 @@ int main(){
 
     printf("input string : ");
     m = inputString();
-    printf("%s\n", m);
-    printf("length is :\n%ld", strlen(m));
-    int* arr = convertStrtoArr(m);
-    printf("length of arr is: %d", arr[0]);
-    for (int i = 1; i < arr[0]; i++){
-        printf("\narr[%d] = %d", i, arr[i]);
-            }
+    // printf("%s\n", m);
+    // printf("length is :\n%ld", strlen(m));
+    // int* arr = convertStrtoArr(m);
+    // printf("length of arr is: %d", arr[0]);
+    // for (int i = 1; i < arr[0]; i++){
+    //     printf("\narr[%d] = %d", i, arr[i]);
+    //         }
     function_finder(m);
     free(m);
     return 0;
