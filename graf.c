@@ -509,7 +509,12 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 
 int is_function(int letter){
     printf("is_function? %d\n", letter);
-    if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
+    if(letter == ('A' -0)
+    || letter == ('B' -0)
+    || letter == ('D' -0)
+    || letter == ('S' -0)
+    || letter == ('T' -0)
+    || letter == ('\n' -0)){
         printf("if didnt make the problem");
         return 1;
     }
