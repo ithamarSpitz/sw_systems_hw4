@@ -735,6 +735,8 @@ int main(){
     destroyGraph(g);
     g = initGraph();
     int* size = (int*)malloc(sizeof(int)*2);
-    char* str = inputString(size);
+    char* str;
+    str = inputString(size);
     function_finder(str, g, size);
+    free(str);
 }
