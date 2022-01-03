@@ -521,7 +521,7 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 //     return i; 
 // }
 
-char *inputString(int* size){
+char *inputString(int* str_size){
     FILE* fp = stdin;
     size_t size = 10;
     char *str;
@@ -537,7 +537,7 @@ char *inputString(int* size){
         }
     }
     str[len++]='\n';
-    size[0] = (int)len;
+    str_size[0] = (int)len;
     return realloc(str, sizeof(*str)*len+1);
 }
 
