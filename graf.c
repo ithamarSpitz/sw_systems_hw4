@@ -528,14 +528,14 @@ void wait_for_space(){
 
 char* get_till_space(){
     printf("get_till_space starts\n");
-    int letter, i=0;
+    int letter = 0, i=0;
     char* node_name;
     while ((letter = getchar()) != ' '){
         printf("letter is: %d\n", letter);
         if(is_function(letter)){
-            char* arr = (char*) malloc(sizeof(char));
-            arr[0] = letter;
-            return arr;
+            //char* arr = (char*) malloc(sizeof(char));
+            //arr[0] = letter;
+            return &letter;
         }
 
         node_name[i] = letter;
