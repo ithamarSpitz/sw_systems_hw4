@@ -84,8 +84,8 @@ void b(int* arr){
     printf("part 2");
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
-    //snprintf (name, 10*sizeof(char), "%d",number);
-    itoa(number, name, 10);
+    snprintf (name, 10*sizeof(char), "%d",number);
+    //itoa(number, name, 10);
     printf("deleteVerticeFromGraph");
     //deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
@@ -95,8 +95,8 @@ void b(int* arr){
         for (int i = 0; i < 10; i++)
             name[i] = ' ';
         number = arr[i];
-        //snprintf (dest_name, 10*sizeof(char), "%d",number);
-        itoa(number,dest_name,10);
+        snprintf (dest_name, 10*sizeof(char), "%d",number);
+        //itoa(number,dest_name,10);
         int weight = arr[i+1];
         printf("insertEdgeToGraph");
         //insertEdgeToGraph(graph, name, dest_name, weight);
@@ -113,7 +113,8 @@ void function_finder(char* str){
         func_to_arr(str, i);
         break;
     case 'B':
-        int* a = func_to_arr(str, i);
+        int* a = realloc(NULL, sizeof(int)*strlen(str));
+        a = func_to_arr(str, i);
         b(a);
         break;
     case 'D':
