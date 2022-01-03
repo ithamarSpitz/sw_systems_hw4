@@ -515,7 +515,8 @@ int is_function(int* let){
     || letter == ('D' -0)
     || letter == ('S' -0)
     || letter == ('T' -0)
-    || letter == ('\n' -0)){
+    //|| letter == ('\n' -0)
+    ){
         printf("if didnt make the problem");
         return 1;
     }
