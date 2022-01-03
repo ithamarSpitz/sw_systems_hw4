@@ -705,28 +705,28 @@ void function_finder(char* str, Graph* graph){
 }
 
 int main(){
-    Graph* g = initGraph();
-    int k = size_of_array(g);
-    printf("%d\n", k);
+    // Graph* g = initGraph();
+    // int k = size_of_array(g);
+    // printf("%d\n", k);
 
-    char c[1];
-    c[0] = '1';
-    Vertice* a = insertVerticeToGraph(g, c);
-    c[0] = '2';
-    insertVerticeToGraph(g, c);
-    k = size_of_array(g);
-    printf("%d\n", k);
-    printf("g2arr(g):\n");
-    addEdgeToVertice(a, c, 3);
-    int* ar = g2arr(g);
-    for (int i = 0; i < k*k; i++){
-        printf("%d\n",ar[i]);
-    }
-    k = dijkstra(g,1,2);
-    printf("\n dijkstra: %d\n", k);
-    printf("insert works");
-    destroyGraph(g);
-    g = initGraph();
+    // char c[1];
+    // c[0] = '1';
+    // Vertice* a = insertVerticeToGraph(g, c);
+    // c[0] = '2';
+    // insertVerticeToGraph(g, c);
+    // k = size_of_array(g);
+    // printf("%d\n", k);
+    // printf("g2arr(g):\n");
+    // addEdgeToVertice(a, c, 3);
+    // int* ar = g2arr(g);
+    // for (int i = 0; i < k*k; i++){
+    //     printf("%d\n",ar[i]);
+    // }
+    // k = dijkstra(g,1,2);
+    // printf("\n dijkstra: %d\n", k);
+    // printf("insert works");
+    // destroyGraph(g);
+    Graph* g = initGraph();
     char* str;
     str = inputString();
     function_finder(str, g);
