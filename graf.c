@@ -571,6 +571,7 @@ int is_function(char letter){
 }
 
 int find_next_func(char* str, int start){
+    printf("part 1");  //////////////////////////////////////
     for (int i = start; i < strlen(str); i++){
         if(is_function(str[i])){
             return i;
@@ -580,6 +581,7 @@ int find_next_func(char* str, int start){
 }
 int* func_to_arr(char* str, int start){
     printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
+    printf("part 1");  //////////////////////////////////////
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
     printf("part 1");  //////////////////////////////////////
