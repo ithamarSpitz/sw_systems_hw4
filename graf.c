@@ -579,7 +579,7 @@ int find_next_func(char* str, int start){
         }
     }
     printf("part 11");  //////////////////////////////////////
-    return strlen(str);
+    return (int)strlen(str);
 }
 int* func_to_arr(char* str, int start){
     int end = find_next_func(str, start+1);
