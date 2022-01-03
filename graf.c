@@ -121,6 +121,7 @@ for (int i = 0; i < n; i++){
     }
     printf("|\n");
 }
+printf("n = %d", n);
 
 
 int cost[n][n],distance[n],pred[n];
