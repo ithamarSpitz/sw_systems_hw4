@@ -528,7 +528,7 @@ char *inputString(){
             if(!str)return str;
         }
     }
-    str[len++]='\0';
+    str[len++]='\n';
 
     return realloc(str, sizeof(*str)*len);
 }
