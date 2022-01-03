@@ -2,8 +2,9 @@
 #include<stdlib.h>
 #include<string.h>
 
-char *inputString(FILE* fp, size_t size){
-//The size is extended by the input with the value of the provisional
+char *inputString(){
+    FILE* fp = stdin;
+    size_t size = 10;
     char *str;
     int ch;
     size_t len = 0;
@@ -23,7 +24,8 @@ char *inputString(FILE* fp, size_t size){
 
 
 
-int* convertStrtoArr(char* str, int length){
+int* convertStrtoArr(char* str){
+    int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
     for (int k = 0; k<length ; k++) 
         arr[k] = 0;
@@ -49,10 +51,10 @@ int main(){
     char *m;
 
     printf("input string : ");
-    m = inputString(stdin, 10);
+    m = inputString();
     printf("%s\n", m);
     printf("length is :\n%ld", strlen(m));
-    int* arr = convertStrtoArr(m, strlen(m));
+    int* arr = convertStrtoArr(m);
     printf("length of arr is: %d", arr[0]);
     for (int i = 1; i < arr[0]; i++){
         printf("\narr[%d] = %d", i, arr[i]);
