@@ -533,6 +533,7 @@ char* get_till_space(){
     while ((letter = getchar()) != ' '){
         printf("letter is: %d\n", letter);
         if(is_function(letter)){
+            printf("passes is function");
             //char* arr = (char*) malloc(sizeof(char));
             //arr[0] = letter;
             return &letter;
