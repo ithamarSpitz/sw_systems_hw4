@@ -571,15 +571,16 @@ int is_function(char letter){
 }
 
 int find_next_func(char* str, int start){
+    int length = strlen(str);
     printf("part 1");  //////////////////////////////////////
-    for (int i = start; i < strlen(str); i++){
+    for (int i = start; i < length; i++){
         if(is_function(str[i])){
                 printf("part 101");  //////////////////////////////////////
             return i;
         }
     }
     printf("part 11");  //////////////////////////////////////
-    return (int)strlen(str);
+    return length;
 }
 int* func_to_arr(char* str, int start){
     int end = find_next_func(str, start+1);
