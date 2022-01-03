@@ -124,35 +124,3 @@ int main(){
     // insertVerticeToGraph(g, '1');
     // printf("%d", size_of_array(g));
 }
-
-void swap(char *x, char *y){
-	char temp;
-	temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
-void permute(int *a, int l, int r){
-int i;
-if (l == r)
-	printf("%s\n", a);
-else{
-	for (i = l; i <= r; i++){
-		swap((a+l), (a+i));
-		permute(a, l+1, r);
-		swap((a+l), (a+i));
-	}
-}
-}
-
-void perm(){
-    int arr[] = {1, 2 ,3}
-	permute(arr, 0, n-1);
-}
-
-int main()
-{
-    
-
-	return 0;
-}
