@@ -168,6 +168,7 @@ return distance[endnode];
 Vertice* findVerticeInGraph(Graph* graph, char* name) {
     Vertice* curVertice = graph->firstVertice;
     while (curVertice != NULL) {
+        printf("%s\n", curVertice->name);
         if (strcmp(curVertice->name, name) == 0) {
             return curVertice;
         } else if (strcmp(name, curVertice->name) < 0)
