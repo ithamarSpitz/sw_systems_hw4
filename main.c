@@ -108,7 +108,7 @@ int main(){
     for (int i = 1; i < arr[0]; i++){
         printf("\narr[%d] = %d", i, arr[i]);
             }
-    
+    function_finder(m);
     free(m);
     return 0;
     // Graph* g = initGraph();
