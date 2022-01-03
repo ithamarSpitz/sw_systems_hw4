@@ -513,6 +513,15 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     return 0;
 }
 
+int mystrlen(char* str){
+    int i = 0;
+    while (1){
+        if(str[i] == '\0')  
+            return i;
+        i++;
+    }   
+}
+
 char *inputString(){
     FILE* fp = stdin;
     size_t size = 10;
@@ -528,13 +537,13 @@ char *inputString(){
             if(!str)return str;
         }
     }
-    str[len++]='\n';
+    str[len++]='\0';
 
     return realloc(str, sizeof(*str)*len);
 }
 
 int* convertStrtoArr(char* str){
-    int length = strlen(str);
+    int length = mystrlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
     for (int k = 0; k<length ; k++) 
         arr[k] = 0;
@@ -571,7 +580,7 @@ int is_function(char letter){
 }
 
 int find_next_func(char* str, int start){
-    int length = strlen(str);
+    int length = mystrlen(str);
     printf("part 1");  //////////////////////////////////////
     for (int i = start; i < length; i++){
         if(is_function(str[i])){
@@ -673,7 +682,7 @@ for (int i1 = 0; i1 < 6; i1++)
 }
 
 void function_finder(char* str, Graph* graph){
-    for (int i = 0; i < strlen(str); i++){
+    for (int i = 0; i < mystrlen(str); i++){
     switch (str[i]){
     case 'A':
         destroyGraph(graph);
