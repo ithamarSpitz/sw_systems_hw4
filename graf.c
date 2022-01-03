@@ -601,7 +601,8 @@ void b(int* arr, Graph* graph){
         for (int i = 0; i < 10; i++)
             name[i] = ' ';
         number = arr[i];
-        itoa(number,dest_name,10);
+        snprintf (dest_name, 10*sizeof(char), "%d",number);
+        //itoa(number,dest_name,10);
         int weight = arr[i+1];
         insertEdgeToGraph(graph, name, dest_name, weight);
     }
