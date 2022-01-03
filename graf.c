@@ -582,6 +582,7 @@ int* func_to_arr(char* str, int start){
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
     dest = realloc(NULL, sizeof(*str)*length);
+    printf("part 1");  //////////////////////////////////////
     strncpy(dest, str+start+1, length);
     return convertStrtoArr(dest);
 }
@@ -589,7 +590,8 @@ int* func_to_arr(char* str, int start){
 void b(int* arr, Graph* graph){
     int number = arr[1];
     char* name;    
-    name = realloc(NULL, sizeof(char)*10);
+    name = realloc(NULL, sizeof(char)*10);   ///////////////////////////////
+    printf("part 2");
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
@@ -597,6 +599,7 @@ void b(int* arr, Graph* graph){
     deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
+    printf("part 3"); //////////////////////////////////////////////////////
     for (int i = 2; i < arr[0]; i+=2){
         for (int i = 0; i < 10; i++)
             name[i] = ' ';
