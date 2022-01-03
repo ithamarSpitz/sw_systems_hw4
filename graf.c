@@ -574,6 +574,7 @@ int find_next_func(char* str, int start){
     printf("part 1");  //////////////////////////////////////
     for (int i = start; i < strlen(str); i++){
         if(is_function(str[i])){
+                printf("part 101");  //////////////////////////////////////
             return i;
         }
     }
