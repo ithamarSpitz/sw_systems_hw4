@@ -587,12 +587,13 @@ int* func_to_arr(char* str, int start){
 }
 
 void b(int* arr, Graph* graph){
-    int number=arr[1];
+    int number = arr[1];
     char* name;    
     name = realloc(NULL, sizeof(char)*10);
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
-    itoa(number,name,10);
+    snprintf (name, 10*sizeof(char), "%d",number);
+    //itoa(number, name, 10);
     deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
