@@ -31,7 +31,7 @@ int* convertStrtoArr(char* str, int length){
 	for (i = 0; i<length ; i++) {
 		if (str[i] == ' '){
             if(i == 0)
-                continue
+                continue;
 			j++;
 		}
 		else {
