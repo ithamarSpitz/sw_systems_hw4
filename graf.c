@@ -433,10 +433,12 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
 }
 
 // deletes a Vertice from the Graph
-void deleteVerticeFromGraph(Graph* graph, char* name) {
+void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming_eges) {
     Vertice* verticeToDelete = findVerticeInGraph(graph, name);
     if (verticeToDelete != NULL) {
+        if(should_delete_incoming_eges){
             findAndDeleteEdgesInGraph(graph, verticeToDelete->name);
+        }
 
         if (verticeToDelete->firstEdge != NULL)
             freeEdge(verticeToDelete->firstEdge);
@@ -609,9 +611,7 @@ void b(int* arr, Graph* graph){
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
     //itoa(number, name, 10);
-    Vertice* verticeToDelete = findVerticeInGraph(graph, name);
-    freeEdge(verticeToDelete->firstEdge);
-    //deleteVerticeFromGraph(graph, name);
+    deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
     for (int i = 2; i < arr[0]; i+=2){
@@ -633,7 +633,7 @@ void d(int* arr, Graph* graph){
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
     //itoa(number,name,10);
-    deleteVerticeFromGraph(graph, name);
+    deleteVerticeFromGraph(graph, name, 1);
 }
 
 void s(int* arr, Graph* graph){
@@ -715,6 +715,6 @@ int main(){
     str = inputString();
     function_finder(str, g);
     free(str);
-}// to do: instead delete node in function b, need to delete its edges. i can find that in delete edges i hope##3# void freeEdge(Edge* edge)
+}// to do: instead delete node in function b, need to delete its edges. i can find that in delete edges i hope##3# void freeEdge(Edge* edge),            freeEdge(verticeToDelete->firstEdge);
 //    Vertice* verticeToDelete = findVerticeInGraph(graph, name);
 // freeEdge(verticeToDelete->firstEdge);

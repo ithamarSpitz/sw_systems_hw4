@@ -60,7 +60,7 @@ void addEdgeToVertice(Vertice* vertice, char* name, unsigned int weight);
 Vertice* insertVerticeToGraph(Graph* graph, char* name);
 void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weight);
 
-void deleteVerticeFromGraph(Graph* graph, char* name);
+void deleteVerticeFromGraph(Graph* graph, char* name,  int should_delete_incoming_eges);
 
 char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned int weight);
 
