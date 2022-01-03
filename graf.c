@@ -34,6 +34,7 @@ Edge* initEdge(char* name) {
 // initializes Graph
 Graph* initGraph() {
     Graph* graph = (Graph*)malloc(sizeof(Graph));  // MUST BE FREED
+    printf("part 4"); //////////////////////////////////////////////////////////////////////////////////
     graph->verticesNum = 0;
     graph->edgesNum = 0;
     return graph;
