@@ -528,10 +528,47 @@ int is_function(int letter){
     }
 }
 
+char *inputString(){
+    FILE* fp = stdin;
+    size_t size = 10;
+    char *str;
+    int ch;
+    size_t len = 0;
+    str = realloc(NULL, sizeof(*str)*size);//size is start size
+    if(!str)return str;
+    while(EOF!=(ch=fgetc(fp)) && ch != '\n'){
+        str[len++]=ch;
+        if(len==size){
+            str = realloc(str, sizeof(*str)*(size+=16));
+            if(!str)return str;
+        }
+    }
+    str[len++]='\0';
 
+    return realloc(str, sizeof(*str)*len);
+}
 
-
-
+int* convertStrtoArr(char* str){
+    int length = strlen(str);
+	int* arr = (int*)malloc(length*sizeof(int));
+    for (int k = 0; k<length ; k++) 
+        arr[k] = 0;
+	int j = 1, i, len = 0;
+	for (i = 0; i<length ; i++) {
+		if (str[i] == ' '){
+            if(i == 0)
+                continue;
+			j++;
+		}
+		else {
+			arr[j] = arr[j] * 10 + (str[i] - 48);
+		}
+	}
+    if(str[length-1] != ' ')
+        j++;
+    arr[0]= j;
+    return arr;
+}
 
 char b(Graph* graph, char* str, int strlen){
 
@@ -635,5 +672,6 @@ int main(){
     printf("insert works");
     destroyGraph(g);
     g = initGraph();
+    
     b(g);
 }
