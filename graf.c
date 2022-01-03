@@ -515,11 +515,10 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 
 int mystrlen(char* str){
     int i = 0;
-    while (1){
-        if(str[i] == '\0')  
-            return i;
+    while (str[i] != '\0'){
         i++;
-    }   
+    }  
+    return i; 
 }
 
 char *inputString(){
