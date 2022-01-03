@@ -614,7 +614,8 @@ void d(int* arr, Graph* graph){
     name = realloc(NULL, sizeof(char)*10);
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
-    itoa(number,name,10);
+    snprintf (name, 10*sizeof(char), "%d",number);
+    //itoa(number,name,10);
     deleteVerticeFromGraph(graph, name, 1);
 }
 
