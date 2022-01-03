@@ -521,7 +521,7 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
 //     return i; 
 // }
 
-char *inputString(int* str_size){
+char *inputString(){
     FILE* fp = stdin;
     size_t size = 10;
     char *str;
@@ -536,16 +536,14 @@ char *inputString(int* str_size){
             if(!str)return str;
         }
     }
-    str[len++]='\n';
-    str_size[0] = (int)len+1;
-    return realloc(str, sizeof(*str)*len+1);
+    str[len++]='\0';
+
+    return realloc(str, sizeof(*str)*len);
 }
 
-int* convertStrtoArr(char* str, int* size){
-    int length = size[0];
-    printf("convertStrtoArr len is : %d", length);
+int* convertStrtoArr(char* str){
+    int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
-    printf("pass after malloc");
     for (int k = 0; k<length ; k++) 
         arr[k] = 0;
 	int j = 1, i, len = 0;
@@ -580,29 +578,21 @@ int is_function(char letter){
     }
 }
 
-int find_next_func(char* str, int start, int* size){
-    int length = size[0];
-    printf("part 1");  //////////////////////////////////////
-    for (int i = start; i < length; i++){
+int find_next_func(char* str, int start){
+    for (int i = start; i < strlen(str); i++){
         if(is_function(str[i])){
-                printf("part 101");  //////////////////////////////////////
             return i;
         }
     }
-    printf("part 11");  //////////////////////////////////////
-    return length;
+    return strlen(str);
 }
-int* func_to_arr(char* str, int start, int* size){
-    int end = find_next_func(str, start+1, size);
-    //printf("\n%c is between %d to %d\n", str[start], start+1, end);
-    printf("part 12");  //////////////////////////////////////
-    int length = end - start -1;
+int* func_to_arr(char* str, int start){
+    printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
+    int length = find_next_func(str, start+1) - start -1;
     char* dest;
-    printf("part 13");  //////////////////////////////////////
     dest = realloc(NULL, sizeof(*str)*length);
-    printf("part 14");  //////////////////////////////////////
     strncpy(dest, str+start+1, length);
-    return convertStrtoArr(dest, size);
+    return convertStrtoArr(dest);
 }
 
 void b(int* arr, Graph* graph){
@@ -682,33 +672,36 @@ for (int i1 = 0; i1 < 6; i1++)
     printf("TSP shortest path: %d", min_path);
 }
 
-void function_finder(char* str, Graph* graph, int* size){
-    for (int i = 0; i < size[0]; i++){
+void function_finder(char* str, Graph* graph){
+    for (int i = 0; i < strlen(str); i++){
+        if(is_function(str[i])){
+            int* a = realloc(NULL, sizeof(int)*strlen(str));
+            a = func_to_arr(str, i);
     switch (str[i]){
     case 'A':
         destroyGraph(graph);
         graph = initGraph();
         break;
     case 'n':
-        b(func_to_arr(str, i, size), graph);
+        b(a, graph);
         break;
     case 'B':
-        b(func_to_arr(str, i, size), graph);
+        b(a, graph);
         break;
     case 'D':
-        d(func_to_arr(str, i, size), graph);
+        d(a, graph);
         break;
     case 'S':
-        s(func_to_arr(str, i, size), graph);
+        s(a, graph);
         break;
     case 'T':
-        t(func_to_arr(str, i, size),graph);
+        t(a,graph);
         break;
     default:
         break;
     }
     }
-    
+    }
 }
 
 int main(){
@@ -734,9 +727,8 @@ int main(){
     printf("insert works");
     destroyGraph(g);
     g = initGraph();
-    int* size = (int*)malloc(sizeof(int)*2);
     char* str;
-    str = inputString(size);
-    function_finder(str, g, size);
+    str = inputString();
+    function_finder(str, g);
     free(str);
 }

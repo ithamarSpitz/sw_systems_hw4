@@ -79,9 +79,7 @@ int* func_to_arr(char* str, int start){
 void b(int* arr){
     int number = arr[1];
     char* name;   
-    printf("part 5"); ////////////////////////////////////////////////// 
     name = realloc(NULL, sizeof(char)*10);   ///////////////////////////////
-    printf("part 2");
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
