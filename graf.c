@@ -665,13 +665,13 @@ void function_finder(char* str, Graph* graph){
         graph = initGraph();
         break;
     case 'n':
-        b(func_to_arr(str, i));
+        b(func_to_arr(str, i), graph);
         break;
     case 'B':
-        b(func_to_arr(str, i));
+        b(func_to_arr(str, i), graph);
         break;
     case 'D':
-        d(func_to_arr(str, i));
+        d(func_to_arr(str, i), graph);
         break;
     case 'S':
         s(func_to_arr(str, i), graph);
