@@ -582,9 +582,10 @@ int find_next_func(char* str, int start){
     return strlen(str);
 }
 int* func_to_arr(char* str, int start){
-    printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
+    int end = find_next_func(str, start+1);
+    printf("\n%c is between %d to %d\n", str[start], start+1, end);
     printf("part 12");  //////////////////////////////////////
-    int length = find_next_func(str, start+1) - start -1;
+    int length = end - start -1;
     char* dest;
     printf("part 13");  //////////////////////////////////////
     dest = realloc(NULL, sizeof(*str)*length);
