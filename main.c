@@ -29,7 +29,9 @@ int* convertStrtoArr(char* str, int length){
         arr[k] = 0;
 	int j = 1, i, len = 0;
 	for (i = 0; i<length ; i++) {
-		if (str[i] == ' ' && i != 0){
+		if (str[i] == ' '){
+            if(i == 0)
+                continue
 			j++;
 		}
 		else {
