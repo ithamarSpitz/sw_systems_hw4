@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 char *inputString(FILE* fp, size_t size){
 //The size is extended by the input with the value of the provisional
@@ -28,7 +29,7 @@ int main(){
     printf("input string : ");
     m = inputString(stdin, 10);
     printf("%s\n", m);
-    printf("length is :\n%ld", sizeof(m));
+    printf("length is :\n%d", strlen(m));
 
     free(m);
     return 0;
