@@ -84,8 +84,8 @@ void b(int* arr){
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
     //itoa(number, name, 10);
-    //printf("deleteVerticeFromGraph");
-    deleteVerticeFromGraph(graph, name, 0);
+    printf("deleteVerticeFromGraph");
+    //deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
     printf("part 3"); //////////////////////////////////////////////////////
@@ -96,8 +96,8 @@ void b(int* arr){
         snprintf (dest_name, 10*sizeof(char), "%d",number);
         //itoa(number,dest_name,10);
         int weight = arr[i+1];
-        //printf("insertEdgeToGraph");
-        insertEdgeToGraph(graph, name, dest_name, weight);
+        printf("insertEdgeToGraph");
+        //insertEdgeToGraph(graph, name, dest_name, weight);
     }
 }
 
