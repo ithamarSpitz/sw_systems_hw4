@@ -1,3 +1,6 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 #include "graf.h"
 #define INFINITY 9999
 
@@ -507,8 +510,7 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     return 0;
 }
 
-int is_function(int* let){
-    int letter = let[0];
+int is_function(int letter){
     printf("is_function? %d\n", letter);
     if(letter == ('A' -0)
     || letter == ('B' -0)
@@ -526,46 +528,15 @@ int is_function(int* let){
     }
 }
 
-void wait_for_space(){
-    int letter = 0;
-    while (1){
-        letter = getchar();
-        if(letter = ' ')
-            return;
-    }
-    return;
-}
 
 
-char* get_till_space(){
-    printf("get_till_space starts\n");
-    int letter = 0, i=0;
-    char* node_name;
-    while ((letter = getchar()) != ' '){
-        printf("letter is: %d\n", letter);
-        if(is_function(&letter)){
-            printf("passes is function");
-            //char* arr = (char*) malloc(sizeof(char));
-            //arr[0] = letter;
-            return node_name;
-        }
 
-        node_name[i] = letter;
-        i++;
-    }
-    char* array = (char*) malloc( i* sizeof(char));
-    for (int j = 0; j < i; j++){
-        array[j]=node_name[j];
-    }
-    char* arr = (char*) malloc(sizeof(char));
-    arr[0] = letter;
-    printf("get_till_space ends");
-    return arr;
-}
 
-char b(Graph* graph){
-    printf("\nwait_for_space\n");
-    wait_for_space();
+
+char b(Graph* graph, char* str, int strlen){
+
+
+
     printf("\nwait_for_node_name");
     char* node_name = get_till_space();
     printf("\nnode_name is %s", node_name);
