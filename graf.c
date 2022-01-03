@@ -423,10 +423,12 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
 }
 
 // deletes a Vertice from the Graph
-void deleteVerticeFromGraph(Graph* graph, char* name) {
+void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming_eges) {
     Vertice* verticeToDelete = findVerticeInGraph(graph, name);
     if (verticeToDelete != NULL) {
-        findAndDeleteEdgesInGraph(graph, verticeToDelete->name);
+        if(should_delete_incoming_eges){
+            findAndDeleteEdgesInGraph(graph, verticeToDelete->name);
+        }
 
         if (verticeToDelete->firstEdge != NULL)
             freeEdge(verticeToDelete->firstEdge);
@@ -510,24 +512,6 @@ char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned in
     return 0;
 }
 
-int is_function(int letter){
-    printf("is_function? %d\n", letter);
-    if(letter == ('A' -0)
-    || letter == ('B' -0)
-    || letter == ('D' -0)
-    || letter == ('S' -0)
-    || letter == ('T' -0)
-    || letter == ('\n' -0)
-    ){
-        printf("if didnt make the problem");
-        return 1;
-    }
-    else{
-        printf("if didnt make the problem");
-        return 0;
-    }
-}
-
 char *inputString(){
     FILE* fp = stdin;
     size_t size = 10;
@@ -569,86 +553,139 @@ int* convertStrtoArr(char* str){
     arr[0]= j;
     return arr;
 }
-
-char b(Graph* graph, char* str, int strlen){
-
-
-
-    printf("\nwait_for_node_name");
-    char* node_name = get_till_space();
-    printf("\nnode_name is %s", node_name);
-    int letter;
-    while(1){
-        char* dest_name = get_till_space();
-        printf("\ndest name is: %s", dest_name);
-        if(is_function(dest_name[0]))
-            return dest_name[0];
-        int weight = atoi(get_till_space());
-        printf("\nweight is: %d", weight);
-        insertEdgeToGraph(graph, node_name, dest_name, weight);
-    } 
-    return '?';   
+int is_function(char letter){
+    if(letter == 'A'
+    || letter == 'B'
+    || letter == 'D'
+    || letter == 'S'
+    || letter == 'T'
+    || letter == 'n'
+    || letter == '\n'
+    ){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
+int find_next_func(char* str, int start){
+    for (int i = start; i < strlen(str); i++){
+        if(is_function(str[i])){
+            return i;
+        }
+    }
+    return strlen(str);
+}
+int* func_to_arr(char* str, int start){
+    printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
+    int length = find_next_func(str, start+1) - start -1;
+    char* dest;
+    dest = realloc(NULL, sizeof(*str)*length);
+    strncpy(dest, str+start+1, length);
+    return convertStrtoArr(dest);
+}
 
-// void read_input(){
-//     char letter, tempVertice, temp;
-//     letter = getchar()+'0';
-//     while(letter != '\n'){
-//         if(letter=='A'){
-//             while(letter=getchar()){
-//                 if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
-//                     break;
-//                 }
-//                 if(letter == ' '){
-//                     continue;
-//                 }
-//                 if(letter == 'n'){
-//                     letter = getchar();
-//                     tempVertice = (letter = getchar());
-//                     while((letter=getchar()) != 'n'){
-//                         if(letter == ' '){
-//                             continue;
-//                         }
-//                         if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
-//                         break;
-//                         }
-//                         temp = letter;
-//                         letter = getchar();
-//                         insertEdgeToGraph(graph, tempVertice, temp, (letter = getchar()));
-//                     }
-//                 }
-                
-                
-//             }
+void b(int* arr, Graph* graph){
+    int number=arr[1];
+    char* name;    
+    name = realloc(NULL, sizeof(char)*10);
+    for (int i = 0; i < 10; i++)
+        name[i] = ' ';
+    itoa(number,name,10);
+    deleteVerticeFromGraph(graph, name, 0);
+    char* dest_name;    
+    dest_name = realloc(NULL, sizeof(char)*10);
+    for (int i = 2; i < arr[0]; i+=2){
+        for (int i = 0; i < 10; i++)
+            name[i] = ' ';
+        number = arr[i];
+        itoa(number,dest_name,10);
+        int weight = arr[i+1];
+        insertEdgeToGraph(graph, name, dest_name, weight);
+    }
+}
 
-//         }
-//         if(letter == 'B'){
-//             letter = getchar();
-//             tempVertice = (letter = getchar());
-//             while((letter=getchar())){
-//                 if(letter == 'A' || letter == 'B' || letter == 'D' || letter == 'S' || letter == 'T' || letter == '\n'){
-//                     break;
-//                 }
-//                 if(letter == ' '){
-//                     continue;
-//                 }
-//                 temp = letter;
-//                 letter = getchar();
-//                 insertEdgeToGraph(graph, tempVertice, temp, (letter = getchar()));
+void d(int* arr, Graph* graph){
+    int number=arr[1];
+    char* name;    
+    name = realloc(NULL, sizeof(char)*10);
+    for (int i = 0; i < 10; i++)
+        name[i] = ' ';
+    itoa(number,name,10);
+    deleteVerticeFromGraph(graph, name, 1);
+}
 
-                
-//             }
-//         }
+void s(int* arr, Graph* graph){
+    printf("Dijsktra shortest path: %d", dijkstra(graph, arr[1], arr[2]));
+}
 
+int dijkstra_in_line(Graph* graph, int* arr, int size){
+    int* myarr = (int*)malloc(size*sizeof(int));
+    int j = 0, sum = 0;
+    for (int i = 0; i < 6; i++)
+        if(arr[i] != -1)
+            myarr[j++] = arr[i];
 
-//         if(letter == '\n'){
-//             break;
-//         }
-//         letter = getchar();
-//     }
+    for (int i = 0; i < size-1; i++)
+        sum += dijkstra(graph, i, i+1);
+    return sum;
+}
 
-// }
+void t(int* arr, Graph* graph){
+int min_path = 2147483646;
+int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
+for (int i = 2; i < arr[1]; i++)
+    nodes[i-2] = arr[i];
+int* permute = (int*)malloc(6*sizeof(int));
+for (int i1 = 0; i1 < 6; i1++)
+    for (int i2 = 0; i2 < 6; i2++)
+        for (int i3 = 0; i3 < 6; i3++)
+            for (int i4 = 0; i4 < 6; i4++)
+                for (int i5 = 0; i5 < 6; i5++)
+                    for (int i6 = 0; i6 < 6; i6++){
+                            permute[0] = nodes[i1];
+                            permute[1] = nodes[i2];
+                            permute[2] = nodes[i3];
+                            permute[3] = nodes[i4];
+                            permute[4] = nodes[i5];
+                            permute[5] = nodes[i6];
+                            int path = dijkstra_in_line(graph, permute, arr[1]);
+                            if(path<min_path)
+                                min_path = path;
+                    }
+    printf("TSP shortest path: %d", min_path);
+}
+
+void function_finder(char* str, Graph* graph){
+    for (int i = 0; i < strlen(str); i++){
+    switch (str[i]){
+    case 'A':
+        destroyGraph(graph);
+        graph = initGraph();
+        break;
+    case 'n':
+        b(func_to_arr(str, i));
+        break;
+    case 'B':
+        b(func_to_arr(str, i));
+        break;
+    case 'D':
+        d(func_to_arr(str, i));
+        break;
+    case 'S':
+        s(func_to_arr(str, i), graph);
+        break;
+    case 'T':
+        t(func_to_arr(str, i),graph);
+        break;
+    default:
+        break;
+    }
+    }
+    
+}
+
 int main(){
     Graph* g = initGraph();
     int k = size_of_array(g);
@@ -672,6 +709,5 @@ int main(){
     printf("insert works");
     destroyGraph(g);
     g = initGraph();
-    
-    b(g);
+
 }

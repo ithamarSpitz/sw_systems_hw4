@@ -49,6 +49,7 @@ int is_function(char letter){
     || letter == 'D'
     || letter == 'S'
     || letter == 'T'
+    || letter == 'n'
     || letter == '\n'
     ){
         return 1;
@@ -66,43 +67,39 @@ int find_next_func(char* str, int start){
     }
     return strlen(str);
 }
-void print_func_arr(char* str, int start){
+int* func_to_arr(char* str, int start){
     printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
     dest = realloc(NULL, sizeof(*str)*length);
-    //dest = realloc(dest, sizeof(*str)*length);
     strncpy(dest, str+start+1, length);
-    int* arr = convertStrtoArr(dest);
-    printf("length of arr is: %d\n", arr[0]);
-    for (int i = 1; i < arr[0]; i++){
-        printf("arr[%d] = %d\n", i, arr[i]);
-            }
-    //return realloc(dest, sizeof(*dest)*length);
+    return convertStrtoArr(dest);
 }
 
 void function_finder(char* str){
-    for (int i = 0; i < strlen(str); i++)
-    {switch (str[i]){
+    for (int i = 0; i < strlen(str); i++){
+    switch (str[i]){
     case 'A':
-        print_func_arr(str, i);
+        func_to_arr(str, i);
+        break;
+    case 'n':
+        func_to_arr(str, i);
         break;
     case 'B':
-        print_func_arr(str, i);
+        func_to_arr(str, i);
         break;
     case 'D':
-        print_func_arr(str, i);
+        func_to_arr(str, i);
         break;
     case 'S':
-        print_func_arr(str, i);
+        func_to_arr(str, i);
         break;
     case 'T':
-        print_func_arr(str, i);
+        func_to_arr(str, i);
         break;
     default:
         break;
     }
-
     }
     
 }
@@ -128,4 +125,34 @@ int main(){
     // printf("%d", size_of_array(g));
 }
 
+void swap(char *x, char *y){
+	char temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
 
+void permute(int *a, int l, int r){
+int i;
+if (l == r)
+	printf("%s\n", a);
+else{
+	for (i = l; i <= r; i++){
+		swap((a+l), (a+i));
+		permute(a, l+1, r);
+		swap((a+l), (a+i));
+	}
+}
+}
+
+void perm(){
+    int arr[] = {1, 2 ,3}
+	permute(arr, 0, n-1);
+}
+
+int main()
+{
+    
+
+	return 0;
+}
