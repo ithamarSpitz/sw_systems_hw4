@@ -83,19 +83,19 @@ void function_finder(char* str){
     for (int i = 0; i < strlen(str); i++)
     {switch (str[i]){
     case 'A':
-        printf("a is between %d to %d", i+1, find_next_func(str, i+1));
+        print_func_arr(str, i);
         break;
     case 'B':
-        printf("b is between %d to %d", i+1, find_next_func(str, i+1));
+        print_func_arr(str, i);
         break;
     case 'D':
-        printf("d is between %d to %d", i+1, find_next_func(str, i+1));
+        print_func_arr(str, i);
         break;
     case 'S':
-        printf("s is between %d to %d", i+1, find_next_func(str, i+1));
+        print_func_arr(str, i);
         break;
     case 'T':
-        printf("t is between %d to %d", i+1, find_next_func(str, i+1));
+        print_func_arr(str, i);
         break;
     default:
         break;
