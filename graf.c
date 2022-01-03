@@ -517,8 +517,10 @@ int is_function(int letter){
 
 void wait_for_space(){
     int letter = 0;
-    while (letter != ' '){
+    while (1){
         letter = getchar();
+        if(letter = ' ')
+            return;
     }
     return;
 }
