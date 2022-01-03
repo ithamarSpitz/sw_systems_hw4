@@ -105,6 +105,9 @@ void b(int* arr){
 
 void function_finder(char* str){
     for (int i = 0; i < strlen(str); i++){
+        if(is_function(str[i])){
+            int* a = realloc(NULL, sizeof(int)*strlen(str));
+            a = func_to_arr(str, i);
     switch (str[i]){
     case 'A':
         func_to_arr(str, i);
@@ -113,8 +116,6 @@ void function_finder(char* str){
         func_to_arr(str, i);
         break;
     case 'B':
-        int* a = realloc(NULL, sizeof(int)*strlen(str));
-        a = func_to_arr(str, i);
         b(a);
         break;
     case 'D':
@@ -130,7 +131,7 @@ void function_finder(char* str){
         break;
     }
     }
-    
+    }
 }
 
 
