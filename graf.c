@@ -475,7 +475,6 @@ void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming
 
 // deletes an Edge from the Graph
 char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned int weight) {
-    printf("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
     Vertice* verticeFrom = findVerticeInGraph(graph, nameFrom);
     Vertice* verticeTo = findVerticeInGraph(graph, nameTo);
 
@@ -715,14 +714,11 @@ int main(){
     char* str;
     str = inputString();
     function_finder(str, g);
-    free(str);  
-    char* str1;
-    str1 = inputString();
-    printf("\nprint its nade if exist: %s\n", findVerticeInGraph(g,str1)->name );
-    // while (str[0] != '\n'){  
-    // free(str);  
-    // str = inputString();
-    // } 
+
+    printf("\nprint its nade if exist: %s\n", findVerticeInGraph(g,"0")->name );
+    printf("\nprint its nade if exist: %s\n", findVerticeInGraph(g,"2")->name );
+    printf("\nprint its nade if exist: %s\n", findVerticeInGraph(g,"13")->name );
+
     free(str);
 }// to do: instead delete node in function b, need to delete its edges. i can find that in delete edges i hope##3# void freeEdge(Edge* edge),            freeEdge(verticeToDelete->firstEdge);
 //    Vertice* verticeToDelete = findVerticeInGraph(graph, name);
