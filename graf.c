@@ -583,7 +583,7 @@ int find_next_func(char* str, int start){
 }
 int* func_to_arr(char* str, int start){
     int end = find_next_func(str, start+1);
-    printf("\n%c is between %d to %d\n", str[start], start+1, end);
+    //printf("\n%c is between %d to %d\n", str[start], start+1, end);
     printf("part 12");  //////////////////////////////////////
     int length = end - start -1;
     char* dest;
