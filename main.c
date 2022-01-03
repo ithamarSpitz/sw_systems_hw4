@@ -45,6 +45,55 @@ int* convertStrtoArr(char* str){
     arr[0]= j;
     return arr;
 }
+int is_function(char letter){
+    if(letter == 'A'
+    || letter == 'B'
+    || letter == 'D'
+    || letter == 'S'
+    || letter == 'T'
+    || letter == '\n'
+    ){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int find_next_func(char* str, int start){
+    for (int i = start; i < strlen(str); i++){
+        if(is_function(str[i])){
+            return i;
+        }
+    }
+    return strlen(str);
+}
+
+void function_finder(char* str){
+    for (int i = 0; i < strlen(str); i++)
+    {switch (str[i]){
+    case 'A':
+        printf("a is between %d to %d", i+1, find_next_func(str, i+1));
+        break;
+    case 'B':
+        printf("b is between %d to %d", i+1, find_next_func(str, i+1));
+        break;
+    case 'D':
+        printf("d is between %d to %d", i+1, find_next_func(str, i+1));
+        break;
+    case 'S':
+        printf("s is between %d to %d", i+1, find_next_func(str, i+1));
+        break;
+    case 'T':
+        printf("t is between %d to %d", i+1, find_next_func(str, i+1));
+        break;
+    default:
+        break;
+    }
+
+    }
+    
+}
 
 
 int main(){
