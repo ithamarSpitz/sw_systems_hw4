@@ -35,6 +35,8 @@ int* convertStrtoArr(char* str, int length){
 			arr[j] = arr[j] * 10 + (str[i] - 48);
 		}
 	}
+    if(str[length-1] != ' ')
+        j++;
     arr[0]= j;
     return arr;
 }
