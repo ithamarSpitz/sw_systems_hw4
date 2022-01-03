@@ -515,7 +515,7 @@ int is_function(int* let){
     || letter == ('D' -0)
     || letter == ('S' -0)
     || letter == ('T' -0)
-    //|| letter == ('\n' -0)
+    || letter == ('\n' -0)
     ){
         printf("if didnt make the problem");
         return 1;
@@ -547,7 +547,7 @@ char* get_till_space(){
             printf("passes is function");
             //char* arr = (char*) malloc(sizeof(char));
             //arr[0] = letter;
-            return &letter;
+            return node_name;
         }
 
         node_name[i] = letter;
