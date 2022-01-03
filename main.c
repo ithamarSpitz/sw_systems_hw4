@@ -68,7 +68,7 @@ int find_next_func(char* str, int start){
 }
 void print_func_arr(char* str, int start){
     printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
-    int length = find_next_func(str, start+1) - start+1;
+    int length = find_next_func(str, start+1) - start;
     char* dest;
     dest = realloc(NULL, sizeof(*str)*length);
     //dest = realloc(dest, sizeof(*str)*length);
