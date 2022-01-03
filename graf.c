@@ -475,6 +475,7 @@ void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming
 
 // deletes an Edge from the Graph
 char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned int weight) {
+    printf("JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ");
     Vertice* verticeFrom = findVerticeInGraph(graph, nameFrom);
     Vertice* verticeTo = findVerticeInGraph(graph, nameTo);
 
