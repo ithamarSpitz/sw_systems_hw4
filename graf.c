@@ -34,7 +34,6 @@ Edge* initEdge(char* name) {
 // initializes Graph
 Graph* initGraph() {
     Graph* graph = (Graph*)malloc(sizeof(Graph));  // MUST BE FREED
-    printf("part 4"); //////////////////////////////////////////////////////////////////////////////////
     graph->verticesNum = 0;
     graph->edgesNum = 0;
     return graph;
@@ -115,6 +114,16 @@ int* g2arr(Graph* graph) {
 int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
 int* g = g2arr(graph);
+/////////////////////
+for (int i = 0; i < n; i++){
+    for (int j = 0; j < n; j++)
+    {
+        printf("|%d",g[n*i+j]);
+    }
+    printf("|\n"),
+}
+
+
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
 //pred[] stores the predecessor of each node
@@ -587,7 +596,6 @@ int find_next_func(char* str, int start){
     return strlen(str);
 }
 int* func_to_arr(char* str, int start){
-    printf("\n%c is between %d to %d\n", str[start], start+1, find_next_func(str, start+1));
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
     dest = realloc(NULL, sizeof(*str)*length);
@@ -598,9 +606,7 @@ int* func_to_arr(char* str, int start){
 void b(int* arr, Graph* graph){
     int number = arr[1];
     char* name;   
-    printf("part 5"); ////////////////////////////////////////////////// 
     name = realloc(NULL, sizeof(char)*10);   ///////////////////////////////
-    printf("part 2");
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
@@ -608,7 +614,6 @@ void b(int* arr, Graph* graph){
     deleteVerticeFromGraph(graph, name, 0);
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
-    printf("part 3"); //////////////////////////////////////////////////////
     for (int i = 2; i < arr[0]; i+=2){
         for (int i = 0; i < 10; i++)
             name[i] = ' ';
@@ -705,27 +710,6 @@ void function_finder(char* str, Graph* graph){
 }
 
 int main(){
-    // Graph* g = initGraph();
-    // int k = size_of_array(g);
-    // printf("%d\n", k);
-
-    // char c[1];
-    // c[0] = '1';
-    // Vertice* a = insertVerticeToGraph(g, c);
-    // c[0] = '2';
-    // insertVerticeToGraph(g, c);
-    // k = size_of_array(g);
-    // printf("%d\n", k);
-    // printf("g2arr(g):\n");
-    // addEdgeToVertice(a, c, 3);
-    // int* ar = g2arr(g);
-    // for (int i = 0; i < k*k; i++){
-    //     printf("%d\n",ar[i]);
-    // }
-    // k = dijkstra(g,1,2);
-    // printf("\n dijkstra: %d\n", k);
-    // printf("insert works");
-    // destroyGraph(g);
     Graph* g = initGraph();
     char* str;
     str = inputString();
