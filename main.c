@@ -48,6 +48,7 @@ int main(){
     printf("%s\n", m);
     printf("length is :\n%ld", strlen(m));
     int* arr = convertStrtoArr(m, strlen(m));
+    printf("length of arr is: %d", arr[0]);
     for (int i = 1; i < arr[0]; i++){
         printf("\narr[%d] = %d", i, arr[i]);
             }
