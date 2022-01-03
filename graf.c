@@ -545,7 +545,7 @@ int* convertStrtoArr(char* str, int* size){
     int length = size[0];
     printf("convertStrtoArr len is : %d", length);
 	int* arr = (int*)malloc(length*sizeof(int));
-    printf("pass after malloc")
+    printf("pass after malloc");
     for (int k = 0; k<length ; k++) 
         arr[k] = 0;
 	int j = 1, i, len = 0;
