@@ -396,15 +396,13 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
                         return curVertice->nextVertice;
                     }
                 } else {
-                    graph->lastVertice->nextVertice = initVertice(name);
+                    Vertice* verticeToInsert = initVertice(name);
+                    graph->lastVertice->nextVertice = verticeToInsert;
                     graph->lastVertice->nextVertice->prevVertice = curVertice;
 
                     graph->lastVertice = graph->lastVertice->nextVertice;
                     graph->verticesNum++;
                     printf("last Inserted |%s|\n\n", name);
-                    graph->lastVertice;
-                    printf("last Inserted |%s|\n\n", name);
-
                     return graph->lastVertice;
                 }
 
