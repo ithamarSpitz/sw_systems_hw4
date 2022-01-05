@@ -620,8 +620,8 @@ void b(int* arr, Graph* graph){
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
     for (int i = 2; i < arr[0]; i+=2){
-        for (int i = 0; i < 10; i++)
-            dest_name[i] = ' ';
+        for (int j = 0; j < 10; j++)
+            dest_name[j] = ' ';
         number = arr[i];
         snprintf (dest_name, 10*sizeof(char), "%d",number);
         //itoa(number,dest_name,10);
