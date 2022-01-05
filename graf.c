@@ -540,7 +540,9 @@ char *inputString(){
     int ch;
     size_t len = 0;
     printf("input string starts");
-    str = realloc(NULL, sizeof(*str)*size);//size is start size
+    str = (char*)malloc(sizeof(*str)*size);
+    //str = realloc(NULL, sizeof(*str)*size);//size is start size
+    printf("first realloc");
     if(!str)return str;
     while(EOF!=(ch=fgetc(fp)) && ch != '\n'){
         str[len++]=ch;
