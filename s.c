@@ -616,7 +616,7 @@ void b(int* arr, Graph* graph){
     if(arr[0] == 2){
         insertVerticeToGraph(graph, name);
         return;
-    }
+    }else{
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
     for (int i = 2; i < arr[0]; i+=2){
@@ -628,7 +628,7 @@ void b(int* arr, Graph* graph){
         int weight = arr[i+1];
         printf("\nname1:%s  name2:%s\n", name, dest_name);
         insertEdgeToGraph(graph, name, dest_name, weight);
-    }
+    }}
 }
 
 Graph* function_finder(char* str, Graph* graph){
