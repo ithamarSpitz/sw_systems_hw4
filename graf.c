@@ -539,6 +539,7 @@ char *inputString(){
     char *str;
     int ch;
     size_t len = 0;
+    printf("input string starts");
     str = realloc(NULL, sizeof(*str)*size);//size is start size
     if(!str)return str;
     while(EOF!=(ch=fgetc(fp)) && ch != '\n'){
@@ -549,7 +550,7 @@ char *inputString(){
         }
     }
     str[len++]='\0';
-
+        printf("input string ends");
     return realloc(str, sizeof(*str)*len);
 }
 
@@ -717,6 +718,7 @@ void function_finder(char* str, Graph* graph){
 
 int main(){
     Graph* g = initGraph();
+    printf("graph initiate successfuly");
     char* str;
     str = inputString();
     printf("input str ru successfuly");
