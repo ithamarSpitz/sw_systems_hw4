@@ -378,7 +378,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
             curVertice->prevVertice = verticeToInsert;
             graph->firstVertice = verticeToInsert;
             graph->verticesNum++;
-            printf("Inserted |%s|\n\n", name);
+            printf("first Inserted |%s|\n\n", name);
             return graph->firstVertice;
         } else {
             while (curVertice != NULL) {
@@ -401,7 +401,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
                     graph->lastVertice = graph->lastVertice->nextVertice;
                     graph->verticesNum++;
-                    printf("Inserted |%s|\n\n", name);
+                    printf("last Inserted |%s|\n\n", name);
                     return graph->lastVertice;
                 }
 
