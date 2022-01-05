@@ -612,6 +612,10 @@ void b(int* arr, Graph* graph){
     snprintf (name, 10*sizeof(char), "%d",number);
     //itoa(number, name, 10);
     deleteVerticeFromGraph(graph, name, 0);
+    if(arr[0] == 2){
+        insertVerticeToGraph(graph, name);
+        return;
+    }
     char* dest_name;    
     dest_name = realloc(NULL, sizeof(char)*10);
     for (int i = 2; i < arr[0]; i+=2){
