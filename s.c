@@ -403,7 +403,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
                     graph->lastVertice = verticeToInsert;
                     graph->verticesNum++;
                     printf("last Inserted |%s|\n\n", name);
-                    return graph->lastVertice;
+                    return verticeToInsert;
                 }
 
                 curVertice = curVertice->nextVertice;
