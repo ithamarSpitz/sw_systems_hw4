@@ -672,7 +672,7 @@ int main(void){
     Vertice* node = g->firstVertice;
     if(node == NULL) printf("first node is null");
     while(node != NULL){
-        printf("\nnumber of nodes:%d\n", i++);
+        printf("\n node's name is:%s\n", node->name);
         node= node->nextVertice;
     }
     
