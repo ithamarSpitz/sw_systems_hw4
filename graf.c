@@ -545,6 +545,7 @@ char *inputString(){
     printf("first realloc");
     if(!str)return str;
     while(EOF!=(ch=fgetc(fp)) && ch != '\n'){
+        printf("%d", ch);
         str[len++]=ch;
         if(len==size){
             str = realloc(str, sizeof(*str)*(size+=16));
