@@ -687,11 +687,14 @@ void function_finder(char* str, Graph* graph){
             a = func_to_arr(str, i);
     switch (str[i]){
     case 'A':
+        printf("finder found A");
         destroyGraph(graph);
         graph = initGraph();
+        printf("graph initiate successfuly");
         break;
     case 'n':
         b(a, graph);
+        printf("node initiate successfuly");
         break;
     case 'B':
         b(a, graph);
@@ -716,6 +719,7 @@ int main(){
     Graph* g = initGraph();
     char* str;
     str = inputString();
+    printf("input str ru successfuly");
     function_finder(str, g);
 
     printf("\nprint its nade if exist: %s\n", findVerticeInGraph(g,"0")->name );
