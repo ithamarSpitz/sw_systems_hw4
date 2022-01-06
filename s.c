@@ -555,7 +555,7 @@ char *inputString(FILE* fp, size_t size){
 
 void s(int* arr1, Graph* graph){
     int *arr = g2arr(graph);
-    int size = size_of_array(Graph* graph); 
+    int size = size_of_array(graph); 
     printf("size is: %d", size);
     for (int i = 0; i < size; i++)
     {for (int j = 0; j < size; j++){
