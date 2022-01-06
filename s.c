@@ -633,6 +633,17 @@ void b(int* arr, Graph* graph){
     }}
 }
 
+void d(int* arr, Graph* graph){
+    int number=arr[1];
+    char* name;    
+    name = realloc(NULL, sizeof(char)*10);
+    for (int i = 0; i < 10; i++)
+        name[i] = ' ';
+    snprintf (name, 10*sizeof(char), "%d",number);
+    //itoa(number,name,10);
+    deleteVerticeFromGraph(graph, name, 1);
+}
+
 Graph* function_finder(char* str, Graph* graph){
     for (int i = 0; i < strlen(str); i++){
         if(is_function(str[i])){
