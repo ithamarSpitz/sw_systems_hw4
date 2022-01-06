@@ -74,21 +74,9 @@ void destroyGraph(Graph* graph) {
     return;
 }
 
-int size_of_array(Graph* graph){
-    Vertice* contVertice = graph->firstVertice;
-    int counter = 0;
-    while (contVertice != NULL) {
-        if(atoi(contVertice->name)+1 > counter){
-            counter = atoi(contVertice->name)+1;
-        }
-        contVertice = contVertice->nextVertice;
-
-    }
-    return counter;
-}
 
 int* g2arr(Graph* graph) {
-    int counter = size_of_array(graph);
+    int counter = graph->verticesNum;
     int* array = (int*) malloc(counter* counter * sizeof(int));
     //int array[counter*counter];
     for (int i = 0; i < counter; i++){
@@ -112,7 +100,7 @@ int* g2arr(Graph* graph) {
 }
 
 int dijkstra(Graph* graph, int startnode, int endnode){
-int n = size_of_array(graph);
+int n = graph->verticesNum;
 int* g = g2arr(graph);
 /////////////////////
 // for (int i = 0; i < n; i++){
@@ -551,30 +539,6 @@ char *inputString(FILE* fp, size_t size){
     str[len++]='\0';
 
     return realloc(str, sizeof(*str)*len);
-}
-
-int* g2arr(Graph* graph) {
-    int counter = graph->verticesNum;
-    int* array = (int*) malloc(counter* counter * sizeof(int));
-    //int array[counter*counter];
-    for (int i = 0; i < counter; i++){
-        for (int j = 0; j < counter; j++){
-            array[i*counter+j] = 0;
-        }
-    }
-//    printf("function cleard the array");
-
-    Vertice* curVertice = graph->firstVertice;
-    while (curVertice != NULL) {
-        Edge* curEdge = curVertice->firstEdge;
-        while (curEdge != NULL) {
-//            printf("atoi(curVertice->name): %d\n atoi(curEdge->name):%d",atoi(curVertice->name),atoi(curEdge->name));
-            array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
-            curEdge = curEdge->nextEdge;
-        }
-        curVertice = curVertice->nextVertice;
-    }
-    return array;
 }
 
 void s(int* arr1, Graph* graph){
