@@ -553,6 +553,40 @@ char *inputString(FILE* fp, size_t size){
     return realloc(str, sizeof(*str)*len);
 }
 
+int* g2arr(Graph* graph) {
+    int counter = graph->verticesNum;
+    int* array = (int*) malloc(counter* counter * sizeof(int));
+    //int array[counter*counter];
+    for (int i = 0; i < counter; i++){
+        for (int j = 0; j < counter; j++){
+            array[i*counter+j] = 0;
+        }
+    }
+//    printf("function cleard the array");
+
+    Vertice* curVertice = graph->firstVertice;
+    while (curVertice != NULL) {
+        Edge* curEdge = curVertice->firstEdge;
+        while (curEdge != NULL) {
+//            printf("atoi(curVertice->name): %d\n atoi(curEdge->name):%d",atoi(curVertice->name),atoi(curEdge->name));
+            array[atoi(curVertice->name)*counter+atoi(curEdge->name)] = curEdge->weight;
+            curEdge = curEdge->nextEdge;
+        }
+        curVertice = curVertice->nextVertice;
+    }
+    return array;
+}
+
+void s(int* arr1, Graph* graph){
+    int *arr = g2arr(graph);
+    for (int i = 0; i < graph->verticesNum; i++)
+    {for (int j = 0; j < graph->verticesNum; j++){
+        printf("|%d", arr[i*graph->verticesNum+j]);
+    }
+    printf("|\n");
+    }
+}
+
 int* convertStrtoArr(char* str){
     int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
@@ -668,6 +702,7 @@ Graph* function_finder(char* str, Graph* graph){
         d(a, graph);
         break;
     case 'S':
+        s(a, graph);
         printf("s(a, graph);");
         break;
     case 'T':
