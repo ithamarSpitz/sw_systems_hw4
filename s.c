@@ -635,8 +635,8 @@ void b(int* arr, Graph* graph){
 Graph* function_finder(char* str, Graph* graph){
     for (int i = 0; i < strlen(str); i++){
         if(is_function(str[i])){
-            if(str[i]!='A'){
             int* a = realloc(NULL, sizeof(int)*strlen(str));
+            if(str[i]!='A'){
             a = func_to_arr(str, i);}
     switch (str[i]){
     case 'A':
