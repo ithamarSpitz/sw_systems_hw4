@@ -414,6 +414,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
 // inserts an Edge to the Graph
 void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weight) {
+
     printf("\nname1:%s name2:%s\n", name1,  name2);
     Vertice* foundVertices[2];
     Vertice* verticeTarget;
@@ -435,7 +436,7 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
             printf("foundVertices[1] == NULL");
         }
     }
-
+    printf("verticeTarget is: %s, name2 is: %s weight is: %d\n", verticeTarget->name, name2, weight);
     addEdgeToVertice(verticeTarget, name2, weight);
     graph->edgesNum++;
 //    printf("Inserted |%s|->%u->|%s|\n\n", name1, weight, name2);
