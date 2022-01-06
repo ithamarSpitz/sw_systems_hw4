@@ -665,6 +665,7 @@ Graph* function_finder(char* str, Graph* graph){
         break;
     case 'D':
         printf("d(a, graph);");
+        d(a, graph);
         break;
     case 'S':
         printf("s(a, graph);");
