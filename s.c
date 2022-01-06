@@ -6,7 +6,7 @@
 
 
 char* allocName(char* name) {
-    return (char*)calloc(1,sizeof(name) + 1);
+    return (char*)malloc(sizeof(name) + 1);
 }
 
 // initializes Vertice
@@ -599,10 +599,8 @@ int find_next_func(char* str, int start){
 int* func_to_arr(char* str, int start){
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
-    if(length == 0) length= 2;
     dest = realloc(NULL, sizeof(*str)*length);
     strncpy(dest, str+start+1, length);
-    printf("str2 arr str is: '%s'", dest);
     return convertStrtoArr(dest);
 }
 
@@ -637,8 +635,7 @@ Graph* function_finder(char* str, Graph* graph){
     for (int i = 0; i < strlen(str); i++){
         if(is_function(str[i])){
             int* a = realloc(NULL, sizeof(int)*strlen(str));
-            if(str[i]!='A'){
-            a = func_to_arr(str, i);}
+            a = func_to_arr(str, i);
     switch (str[i]){
     case 'A':
         printf("finder found A");
@@ -687,4 +684,4 @@ int main(void){
     free(str);
     return 0;
 }
-//uninitialized value at insert vertice
+//uninitialized value ats
