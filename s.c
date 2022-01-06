@@ -563,7 +563,8 @@ void s(int* arr, Graph* graph){
     }
     printf("|\n");
     }
-    dijkstra(graph, arr[1], arr[2]);
+    int distance = dijkstra(graph, arr[1], arr[2]);
+    printf("\ndiakstra is: %d\n", distance);
 }
 
 int* convertStrtoArr(char* str){
