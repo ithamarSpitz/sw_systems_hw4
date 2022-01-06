@@ -553,16 +553,17 @@ char *inputString(FILE* fp, size_t size){
     return realloc(str, sizeof(*str)*len);
 }
 
-void s(int* arr1, Graph* graph){
-    int *arr = g2arr(graph);
+void s(int* arr, Graph* graph){
+    int *garr = g2arr(graph);
     int size = size_of_array(graph); 
     printf("size is: %d", size);
     for (int i = 0; i < size; i++)
     {for (int j = 0; j < size; j++){
-        printf("|%d", arr[i*size+j]);
+        printf("|%d", garr[i*size+j]);
     }
     printf("|\n");
     }
+    dijkstra(graph, arr[1], arr[2]);
 }
 
 int* convertStrtoArr(char* str){
