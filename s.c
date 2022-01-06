@@ -74,9 +74,21 @@ void destroyGraph(Graph* graph) {
     return;
 }
 
+int size_of_array(Graph* graph){
+    Vertice* contVertice = graph->firstVertice;
+    int counter = 0;
+    while (contVertice != NULL) {
+        if(atoi(contVertice->name)+1 > counter){
+            counter = atoi(contVertice->name)+1;
+        }
+        contVertice = contVertice->nextVertice;
+
+    }
+    return counter;
+}
 
 int* g2arr(Graph* graph) {
-    int counter = graph->verticesNum;
+    int counter = size_of_array(graph);
     int* array = (int*) malloc(counter* counter * sizeof(int));
     //int array[counter*counter];
     for (int i = 0; i < counter; i++){
@@ -100,7 +112,7 @@ int* g2arr(Graph* graph) {
 }
 
 int dijkstra(Graph* graph, int startnode, int endnode){
-int n = graph->verticesNum;
+int n = size_of_array(graph);
 int* g = g2arr(graph);
 /////////////////////
 // for (int i = 0; i < n; i++){
@@ -543,9 +555,11 @@ char *inputString(FILE* fp, size_t size){
 
 void s(int* arr1, Graph* graph){
     int *arr = g2arr(graph);
-    for (int i = 0; i < graph->verticesNum; i++)
-    {for (int j = 0; j < graph->verticesNum; j++){
-        printf("|%d", arr[i*graph->verticesNum+j]);
+    int size = size_of_array(Graph* graph); 
+    printf("size is: %d", size);
+    for (int i = 0; i < size; i++)
+    {for (int j = 0; j < size; j++){
+        printf("|%d", arr[i*size+j]);
     }
     printf("|\n");
     }
