@@ -599,6 +599,7 @@ int find_next_func(char* str, int start){
 int* func_to_arr(char* str, int start){
     int length = find_next_func(str, start+1) - start -1;
     char* dest;
+    if(length == 0) length= 1;
     dest = realloc(NULL, sizeof(*str)*length);
     strncpy(dest, str+start+1, length);
     return convertStrtoArr(dest);
@@ -684,3 +685,4 @@ int main(void){
     free(str);
     return 0;
 }
+//uninitialized value at insert vertice
