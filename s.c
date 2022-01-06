@@ -472,7 +472,7 @@ void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming
             }
         }
         free(verticeToDelete->name);
-        free(verticeToDelete->edgesNum);
+        verticeToDelete->edgesNum=0;
         free(verticeToDelete);
         verticeToDelete = NULL;
 
