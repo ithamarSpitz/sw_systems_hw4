@@ -6,7 +6,7 @@
 
 
 char* allocName(char* name) {
-    return (char*)malloc(sizeof(name) + 1);
+    return (char*)calloc(1,sizeof(name) + 1);
 }
 
 // initializes Vertice
@@ -602,6 +602,7 @@ int* func_to_arr(char* str, int start){
     if(length == 0) length= 2;
     dest = realloc(NULL, sizeof(*str)*length);
     strncpy(dest, str+start+1, length);
+    printf("str2 arr str is: '%s'", dest);
     return convertStrtoArr(dest);
 }
 
