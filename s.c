@@ -312,7 +312,7 @@ void addEdgeToVertice(Vertice* vertice, char* name, unsigned int weight) {
     } else {
         Edge* curEdge = vertice->firstEdge;
 
-        if (strcmp(name, curEdge->name) < 0) {
+        if (strcmp(name, curEdge->name) < 0) {//////////// copares to null cur name is not initialize while edges num is 1
             Edge* edgeToInsert = initEdge(name);
             edgeToInsert->nextEdge = curEdge;
             edgeToInsert->weight = weight;
@@ -472,6 +472,7 @@ void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming
             }
         }
         free(verticeToDelete->name);
+        free(verticeToDelete->edgesNum);
         free(verticeToDelete);
         verticeToDelete = NULL;
 
