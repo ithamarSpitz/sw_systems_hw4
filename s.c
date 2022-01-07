@@ -724,6 +724,7 @@ Graph* function_finder(char* str, Graph* graph){
         break;
     case 'T':
         printf("t(a, graph);");
+        t(a, graph);
         break;
     default:
         break;
