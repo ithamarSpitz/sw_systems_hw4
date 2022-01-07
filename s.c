@@ -596,7 +596,7 @@ for (int i1 = 0; i1 < 6; i1++)
                             permute[4] = nodes[i5];
                             permute[5] = nodes[i6];
                             int path = dijkstra_in_line(graph, permute, arr[1]);
-                            if(path<min_path)
+                            if(path<min_path && path != 0)
                                 min_path = path;
                     }
     printf("TSP shortest path: %d", min_path);
