@@ -567,6 +567,43 @@ void s(int* arr, Graph* graph){
     printf("\ndiakstra is: %d\n", distance);
 }
 
+int dijkstra_in_line(Graph* graph, int* arr, int size){
+    int* myarr = (int*)malloc(size*sizeof(int));
+    int j = 0, sum = 0;
+    for (int i = 0; i < 6; i++)
+        if(arr[i] != -1)
+            myarr[j++] = arr[i];
+
+    for (int i = 0; i < size-1; i++)
+        sum += dijkstra(graph, i, i+1);
+    return sum;
+}
+
+void t(int* arr, Graph* graph){
+int min_path = 2147483646;
+int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
+for (int i = 2; i < arr[1]; i++)
+    nodes[i-2] = arr[i];
+int* permute = (int*)malloc(6*sizeof(int));
+for (int i1 = 0; i1 < 6; i1++)
+    for (int i2 = 0; i2 < 6; i2++)
+        for (int i3 = 0; i3 < 6; i3++)
+            for (int i4 = 0; i4 < 6; i4++)
+                for (int i5 = 0; i5 < 6; i5++)
+                    for (int i6 = 0; i6 < 6; i6++){
+                            permute[0] = nodes[i1];
+                            permute[1] = nodes[i2];
+                            permute[2] = nodes[i3];
+                            permute[3] = nodes[i4];
+                            permute[4] = nodes[i5];
+                            permute[5] = nodes[i6];
+                            int path = dijkstra_in_line(graph, permute, arr[1]);
+                            if(path<min_path)
+                                min_path = path;
+                    }
+    printf("TSP shortest path: %d", min_path);
+}
+
 int* convertStrtoArr(char* str){
     int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
