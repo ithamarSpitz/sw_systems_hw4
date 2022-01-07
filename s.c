@@ -121,8 +121,6 @@ int* g = g2arr(graph);
 //     }
 //     printf("|\n");
 // }
-printf("n = %d", n);
-
 
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
