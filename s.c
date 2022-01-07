@@ -580,7 +580,7 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
 void t(int* arr, Graph* graph){
 int min_path = 2147483646;
 int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
-for (int i = 2; i < arr[1]; i++)
+for (int i = 2; i < arr[1]+2; i++)
     nodes[i-2] = arr[i];
 int* permute = (int*)malloc(6*sizeof(int));
 for (int i1 = 0; i1 < 6; i1++)
