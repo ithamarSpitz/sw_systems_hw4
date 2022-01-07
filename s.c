@@ -603,6 +603,7 @@ if (l == r){
 void t(int* arr, Graph* graph){
 int min_path = 2147483646;
 int *ans = (int*)malloc(sizeof(int));
+ans[0] = min_path;
 permute(arr, 2, arr[1]+2, ans, graph, arr[1]);
 // int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
 // for (int i = 2; i < arr[1]+2; i++)
