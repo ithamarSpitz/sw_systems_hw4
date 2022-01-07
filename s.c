@@ -572,8 +572,10 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
     //     if(arr[i] != -1)
     //         myarr[j++] = arr[i];
     int sum = 0;
+    printf("\n");
     for (int i = 2; i < size+1; i++)
         sum += dijkstra(graph, arr[i], arr[i+1]);
+    printf("arr = %d,%d,%d,  sum = %d\n", sum, arr[2], arr[3], arr[4]);
     return sum;
 }
 
