@@ -114,13 +114,13 @@ int* g2arr(Graph* graph) {
 int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
 int* g = g2arr(graph);
-///////////////////
-for (int i = 0; i < n; i++){
-    for (int j = 0; j < n; j++){
-        printf("|%d",g[n*i+j]);
-    }
-    printf("|\n");
-}
+/////////////////////
+// for (int i = 0; i < n; i++){
+//     for (int j = 0; j < n; j++){
+//         printf("|%d",g[n*i+j]);
+//     }
+//     printf("|\n");
+// }
 
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
@@ -566,68 +566,40 @@ void s(int* arr, Graph* graph){
 }
 
 int dijkstra_in_line(Graph* graph, int* arr, int size){
-    // int* myarr = (int*)malloc(size*sizeof(int));
-    // int j = 0, sum = 0;
-    // for (int i = 0; i < 6; i++)
-    //     if(arr[i] != -1)
-    //         myarr[j++] = arr[i];
-    int sum = 0;
-    printf("\n");
-    for (int i = 2; i < size+1; i++)
-        sum += dijkstra(graph, arr[i], arr[i+1]);
-    printf("arr = %d,%d,%d,  sum = %d\n", sum, arr[2], arr[3], arr[4]);
+    int* myarr = (int*)malloc(size*sizeof(int));
+    int j = 0, sum = 0;
+    for (int i = 0; i < 6; i++)
+        if(arr[i] != -1)
+            myarr[j++] = arr[i];
+
+    for (int i = 0; i < size-1; i++)
+        sum += dijkstra(graph, myarr[i], myarr[i+1]);
     return sum;
-}
-
-void swap(int *x, int *y) { 
-    int temp; 
-    temp = *x; 
-    *x = *y; 
-    *y = temp; 
-} 
-
-void permute(int *a, int l, int r, int *ans, Graph* graph, int size) { 
-int i; 
-if (l == r){
-    int cur_ans = dijkstra_in_line(graph, a, size);
-    if(cur_ans < ans[0] && cur_ans != 0){
-        ans[0] = cur_ans;
-    }
-}else{ 
-    for(i = l; i <= r; i++){ 
-        swap((a+l), (a+i)); 
-        permute(a, l+1, r, ans, graph, size); 
-        swap((a+l), (a+i)); //backtrack 
-    } 
-}
 }
 
 void t(int* arr, Graph* graph){
 int min_path = 2147483646;
-int *ans = (int*)malloc(sizeof(int));
-ans[0] = min_path;
-permute(arr, 2, arr[1]+2, ans, graph, arr[1]);
-// int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
-// for (int i = 2; i < arr[1]+2; i++)
-//     nodes[i-2] = arr[i];
-// int* permute = (int*)malloc(6*sizeof(int));
-// for (int i1 = 0; i1 < 6; i1++)
-//     for (int i2 = 0; i2 < 6; i2++)
-//         for (int i3 = 0; i3 < 6; i3++)
-//             for (int i4 = 0; i4 < 6; i4++)
-//                 for (int i5 = 0; i5 < 6; i5++)
-//                     for (int i6 = 0; i6 < 6; i6++){
-//                             permute[0] = nodes[i1];
-//                             permute[1] = nodes[i2];
-//                             permute[2] = nodes[i3];
-//                             permute[3] = nodes[i4];
-//                             permute[4] = nodes[i5];
-//                             permute[5] = nodes[i6];
-//                             int path = dijkstra_in_line(graph, permute, arr[1]);
-//                             if(path<min_path)
-//                                 min_path = path;
-//                     }
-    printf("TSP shortest path: %d", ans[0]);
+int nodes[] = {-1, -1, -1, -1, -1, -1};///////////////////////////////////////////
+for (int i = 2; i < arr[1]+2; i++)
+    nodes[i-2] = arr[i];
+int* permute = (int*)malloc(6*sizeof(int));
+for (int i1 = 0; i1 < 6; i1++)
+    for (int i2 = 0; i2 < 6; i2++)
+        for (int i3 = 0; i3 < 6; i3++)
+            for (int i4 = 0; i4 < 6; i4++)
+                for (int i5 = 0; i5 < 6; i5++)
+                    for (int i6 = 0; i6 < 6; i6++){
+                            permute[0] = nodes[i1];
+                            permute[1] = nodes[i2];
+                            permute[2] = nodes[i3];
+                            permute[3] = nodes[i4];
+                            permute[4] = nodes[i5];
+                            permute[5] = nodes[i6];
+                            int path = dijkstra_in_line(graph, permute, arr[1]);
+                            if(path<min_path)
+                                min_path = path;
+                    }
+    printf("TSP shortest path: %d", min_path);
 }
 
 int* convertStrtoArr(char* str){
