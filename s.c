@@ -588,7 +588,7 @@ void permute(int *a, int l, int r, int *ans, Graph* graph, int size) {
 int i; 
 if (l == r){
     int cur_ans = dijkstra_in_line(graph, a, size);
-    if(cur_ans < ans[0]){
+    if(cur_ans < ans[0] && cur_ans != 0){
         ans[0] = cur_ans;
     }
 }else{ 
