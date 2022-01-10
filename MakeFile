@@ -1,4 +1,6 @@
-all: graph graf.so
+all: graf.so graflib graph
+
+graflib: graf.so
 
 graf.o: main.c graf.h
 	gcc -Wall -g -c main.c -lm
