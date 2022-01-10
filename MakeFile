@@ -1,4 +1,4 @@
-all: main.c graf.h main.o graph
+all: graph
 
 main.o: main.c graf.h
 	gcc -Wall -g -c main.c graf.h
