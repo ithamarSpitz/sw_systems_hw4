@@ -188,7 +188,7 @@ void find2VerticesInGraph(Graph* graph, char* name1, char* name2, Vertice* found
     foundVertices[1] = NULL;
 
     char found1 = 0, found2 = 0, passed1 = 0, passed2 = 0;
-    while (curVertice1 != NULL && curVertice2 != NULL) {
+    while (curVertice1 != NULL && curVertice2 != NULL && curVertice1->name != NULL && curVertice2->name != NULL) {
         if (found1 == 1) {
             if (strcmp(curVertice2->name, name2) == 0) {
                 found2 = 1;
