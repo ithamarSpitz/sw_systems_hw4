@@ -554,15 +554,6 @@ char *inputString(FILE* fp, size_t size){
 }
 
 void s(int* arr, Graph* graph){
-    int *garr = g2arr(graph);
-    int size = size_of_array(graph); 
-    // printf("size is: %d", size);
-    // for (int i = 0; i < size; i++)
-    // {for (int j = 0; j < size; j++){
-    //     printf("|%d", garr[i*size+j]);
-    // }
-    // printf("|\n");
-    // }
     int distance = dijkstra(graph, arr[1], arr[2]);
     printf("Dijsktra shortest path: %d \n", distance);
 }
@@ -579,10 +570,6 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
         if(ans == -1)
             return -1;
         sum +=  ans;
-    }
-    if(sum == 10003){
-        int i =6;
-        printf("dfgg");
     }
     return sum;
 }
@@ -755,8 +742,6 @@ int main(void){
     str = inputString(stdin, 10);
     Graph* g = initGraph();
     g = function_finder(str, g);
-    int i = 1;
-    Vertice* node = g->firstVertice;
     free(str);
     return 0;
 }
