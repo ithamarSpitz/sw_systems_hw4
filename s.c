@@ -163,7 +163,7 @@ pred[i]=nextnode;
 count++;
 }
 int ans = distance[endnode];
-if(ans == 0 || ans>INFINITY)
+if(ans == 0 || ans>=INFINITY)
     return -1;
 return ans;
 }
