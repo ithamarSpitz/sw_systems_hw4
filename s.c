@@ -596,32 +596,22 @@ for (int i1 = 0; i1 < 6; i1++)
             for (int i4 = 0; i4 < 6; i4++)
                 for (int i5 = 0; i5 < 6; i5++)
                     for (int i6 = 0; i6 < 6; i6++){
-                            permute[0] = nodes[i1];
-                            permute[1] = nodes[i2];
-                            permute[2] = nodes[i3];
-                            permute[3] = nodes[i4];
-                            permute[4] = nodes[i5];
-                            permute[5] = nodes[i6];
-                            int all_exsists = 0;
-                            for (int i7 = 0; i7 < 6; i7++){
-                                if(nodes[i7] == -1 ){
-                                    if(all_exsists == i7 && i7 == arr[1]){
-                                        int path = dijkstra_in_line(graph, permute, arr[1]);
-                                            if(path<min_path && path != -1)
-                                                min_path = path;
-                                            break;
-                                    }else
-                                        break;
-                                }else{
-                                for (int i8 = 0; i8 < 6; i8++){
-                                        if(nodes[i7] == permute[i8]){
-                                        all_exsists++;
-                                        break;
-                                        }
-                                }}
-                            }
-                            
-
+                        permute[0] = nodes[i1];
+                        permute[1] = nodes[i2];
+                        permute[2] = nodes[i3];
+                        permute[3] = nodes[i4];
+                        permute[4] = nodes[i5];
+                        permute[5] = nodes[i6];
+                        int all_exsists = 0;
+                        for (int i7 = 0; i7 < arr[1]; i7++)
+                            for (int i8 = 0; i8 < arr[1]; i8++)
+                                if(permute[i7]==nodes[i8])
+                                    all_exsists++;
+                        if(all_exsists == arr[1]){
+                            int path = dijkstra_in_line(graph, permute, arr[1]);
+                            if(path<min_path && path != -1)
+                                    min_path = path;
+                        }
                     }
     if(min_path == 2147483646)
         min_path= -1;
