@@ -659,7 +659,7 @@ int is_function(char letter){
 }
 
 int find_next_func(char* str, int start){
-    for (int i = start; i < strlen(str); i++){
+    for (size_t i = start; i < strlen(str); i++){
         if(is_function(str[i])){
             return i;
         }
@@ -713,7 +713,7 @@ void d(int* arr, Graph* graph){
 }
 
 Graph* function_finder(char* str, Graph* graph){
-    for (int i = 0; i < strlen(str); i++){
+    for (size_t i = 0; i < strlen(str); i++){
         if(is_function(str[i])){
             int* a = realloc(NULL, sizeof(int)*strlen(str));
             a = func_to_arr(str, i);
