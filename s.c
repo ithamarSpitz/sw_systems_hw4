@@ -160,7 +160,10 @@ pred[i]=nextnode;
 }
 count++;
 }
-return distance[endnode];
+int ans = distance[endnode];
+if(ans = 0 || ans>INFINITY)
+    return -1;
+return ans;
 }
 
 Vertice* findVerticeInGraph(Graph* graph, char* name) {
@@ -572,8 +575,12 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
         if(arr[i] != -1)
             myarr[j++] = arr[i];
 
-    for (int i = 0; i < size-1; i++)
-        sum += dijkstra(graph, myarr[i], myarr[i+1]);
+    for (int i = 0; i < size-1; i++){
+        int ans = dijkstra(graph, myarr[i], myarr[i+1]);
+        if(ans == -1)
+            return -1;
+        sum +=  ans;
+    }
     return sum;
 }
 
@@ -595,10 +602,28 @@ for (int i1 = 0; i1 < 6; i1++)
                             permute[3] = nodes[i4];
                             permute[4] = nodes[i5];
                             permute[5] = nodes[i6];
-                            int path = dijkstra_in_line(graph, permute, arr[1]);
-                            if(path<min_path && path != 0)
-                                min_path = path;
+                            int all_exsists = 0;
+                            for (int i7 = 0; i7 < 6; i7++){
+                                if(nodes[i7] != -1){
+                                    if(all_exsists == i7){
+                                        int path = dijkstra_in_line(graph, permute, arr[1]);
+                                            if(path<min_path && path != -1)
+                                                min_path = path;
+                                            break;
+                                    }
+                                }else{
+                                for (int i8 = 0; i8 < 6; i8++){
+                                        if(nodes[i7] == permute[i8]){
+                                        all_exsists++;
+                                        break;
+                                        }
+                                }}
+                            }
+                            
+
                     }
+    if(min_path == 2147483646)
+        min_path= -1;
     printf("TSP shortest path: %d", min_path);
 }
 
