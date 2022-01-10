@@ -694,7 +694,7 @@ void b(int* arr, Graph* graph){
         snprintf (dest_name, 10*sizeof(char), "%d",number);
         //itoa(number,dest_name,10);
         int weight = arr[i+1];
-        printf("\nname1:%s  name2:%s\n", name, dest_name);
+        // printf("\nname1:%s  name2:%s\n", name, dest_name);
         insertEdgeToGraph(graph, name, dest_name, weight);
     }}
 }
@@ -717,28 +717,28 @@ Graph* function_finder(char* str, Graph* graph){
             a = func_to_arr(str, i);
     switch (str[i]){
     case 'A':
-        printf("finder found A");
+        // printf("finder found A");
         destroyGraph(graph);
         graph = initGraph();
-        printf("graph initiate successfuly");
+        // printf("graph initiate successfuly");
         break;
     case 'n':
         b(a, graph);
-        printf("node initiate successfuly");
+        // printf("node initiate successfuly");
         break;
     case 'B':
         b(a, graph);
         break;
     case 'D':
-        printf("d(a, graph);");
+        // printf("d(a, graph);");
         d(a, graph);
         break;
     case 'S':
         s(a, graph);
-        printf("s(a, graph);");
+        // printf("s(a, graph);");
         break;
     case 'T':
-        printf("t(a, graph);");
+        // printf("t(a, graph);");
         t(a, graph);
         break;
     default:
