@@ -604,7 +604,7 @@ for (int i1 = 0; i1 < 6; i1++)
                             permute[5] = nodes[i6];
                             int all_exsists = 0;
                             for (int i7 = 0; i7 < 6; i7++){
-                                if(nodes[i7] != -1){
+                                if(nodes[i7] == -1){
                                     if(all_exsists == i7){
                                         int path = dijkstra_in_line(graph, permute, arr[1]);
                                             if(path<min_path && path != -1)
