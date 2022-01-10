@@ -581,8 +581,8 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
         sum +=  ans;
     }
     if(sum == 10003){
-
-        
+        int i =6;
+        printf("dfgg");
     }
     return sum;
 }
