@@ -575,7 +575,7 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
         if(arr[i] != -1)
             myarr[j++] = arr[i];
 
-    for (int i = 0; i < size-1; i++){
+    for (int i = 0; i < size; i++){// size-1 deleted
         int ans = dijkstra(graph, myarr[i], myarr[i+1]);
         if(ans == -1)
             return -1;
