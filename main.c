@@ -610,7 +610,6 @@ for (int i1 = 0; i1 < 6; i1++){
     if(min_path == 2147483646)
         min_path= -1;
     printf("TSP shortest path: %d \n", min_path);
-    free(permute);
 }
 
 int* convertStrtoArr(char* str){
@@ -632,7 +631,6 @@ int* convertStrtoArr(char* str){
     if(str[length-1] != ' ')
         j++;
     arr[0]= j;
-    free(str);
     return arr;
 }
 int is_function(char letter){
@@ -691,9 +689,7 @@ void b(int* arr, Graph* graph){
         int weight = arr[i+1];
         // printf("\nname1:%s  name2:%s\n", name, dest_name);
         insertEdgeToGraph(graph, name, dest_name, weight);
-    }free(dest_name);
-    }
-    free(name);
+    }}
 }
 
 void d(int* arr, Graph* graph){
