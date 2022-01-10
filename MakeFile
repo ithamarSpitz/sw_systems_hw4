@@ -1,22 +1,12 @@
-all: graf.so graflib graph
-
-graflib: graf.so
-
-graf.o: main.c graf.h
-	gcc -Wall -g -c main.c -lm
+all: graph
 
 main.o: main.c graf.h
-	gcc -Wall -g -c main.c
+	gcc -Wall -g -c main.c graf.h
 
-graf.so: graf.o
-	gcc -shared -o main.o
-
-graph: main.o graf.so
-	gcc -Wall -g -o graph main.o ./graf.so -lm
+graph: main.o
+	gcc -Wall -g -o graph main.o -lm
 
 .PHONY: clean
 
 clean:
-	rm -f *.o *.a *.so graph
-
-
+	rm -f *.o graph
