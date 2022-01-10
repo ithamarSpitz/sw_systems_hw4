@@ -707,7 +707,6 @@ void d(int* arr, Graph* graph){
     snprintf (name, 10*sizeof(char), "%d",number);
     //itoa(number,name,10);
     deleteVerticeFromGraph(graph, name, 1);
-    free(name);
 }
 
 Graph* function_finder(char* str, Graph* graph){
@@ -744,7 +743,6 @@ Graph* function_finder(char* str, Graph* graph){
     default:
         break;
     }
-    free(a);
     }
     }return graph;
 }
