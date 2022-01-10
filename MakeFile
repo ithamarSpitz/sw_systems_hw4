@@ -9,4 +9,4 @@ graph: main.o
 .PHONY: clean
 
 clean:
-	rm -f *.o graph
+	rm -f *.h.gch *.o graph
