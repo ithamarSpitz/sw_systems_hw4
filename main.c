@@ -743,6 +743,7 @@ Graph* function_finder(char* str, Graph* graph){
     default:
         break;
     }
+    free(a);
     }
     }return graph;
 }
