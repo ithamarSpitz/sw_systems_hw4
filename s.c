@@ -604,13 +604,14 @@ for (int i1 = 0; i1 < 6; i1++)
                             permute[5] = nodes[i6];
                             int all_exsists = 0;
                             for (int i7 = 0; i7 < 6; i7++){
-                                if(nodes[i7] == -1 && i7 == arr[1]){
-                                    if(all_exsists == i7){
+                                if(nodes[i7] == -1 ){
+                                    if(all_exsists == i7 && i7 == arr[1]){
                                         int path = dijkstra_in_line(graph, permute, arr[1]);
                                             if(path<min_path && path != -1)
                                                 min_path = path;
                                             break;
-                                    }
+                                    }else
+                                        break;
                                 }else{
                                 for (int i8 = 0; i8 < 6; i8++){
                                         if(nodes[i7] == permute[i8]){
