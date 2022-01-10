@@ -239,7 +239,7 @@ void find2VerticesInGraph(Graph* graph, char* name1, char* name2, Vertice* found
 }
 
 // finds one Edge of a Vertice with or without weight comparison
-Edge* findEdgeOfVertice(Graph* graph, Vertice* verticeFrom, char* nameTo, unsigned int weight) {
+Edge* findEdgeOfVertice(Graph* graph, Vertice* verticeFrom, char* nameTo, int weight) {
     char compareWeight = 1;
     if (weight == -1) {
         compareWeight = 0;
@@ -301,7 +301,7 @@ void findAndDeleteEdgesInGraph(Graph* graph, char* nameTo) {
 }
 
 // adds an Edge to a Vertice
-void addEdgeToVertice(Vertice* vertice, char* name, unsigned int weight) {
+void addEdgeToVertice(Vertice* vertice, char* name, int weight) {
     if (vertice->edgesNum == 0) {
         vertice->firstEdge = initEdge(name);
         vertice->firstEdge->weight = weight;
@@ -413,7 +413,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 }
 
 // inserts an Edge to the Graph
-void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weight) {
+void insertEdgeToGraph(Graph* graph, char* name1, char* name2, int weight) {
 
 //    printf("\nname1:%s name2:%s\n", name1,  name2);
     Vertice* foundVertices[2];
@@ -486,7 +486,7 @@ void deleteVerticeFromGraph(Graph* graph, char* name, int should_delete_incoming
 }
 
 // deletes an Edge from the Graph
-char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned int weight) {
+char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, int weight) {
     Vertice* verticeFrom = findVerticeInGraph(graph, nameFrom);
     Vertice* verticeTo = findVerticeInGraph(graph, nameTo);
 

@@ -16,7 +16,7 @@ typedef struct Edge {
     struct Edge* nextEdge;
     struct Edge* prevEdge;
     char* name;
-    unsigned int weight; // unsigned int because it represents money
+    int weight; // unsigned int because it represents money
     char visited;
 } Edge;
 
@@ -53,16 +53,16 @@ int dijkstra(Graph* graph, int startnode, int endnode);
 Vertice* findVerticeInGraph(Graph* graph, char* name);
 void find2VerticesInGraph(Graph* graph, char* name1, char* name2, Vertice* foundVertices[2]);
 
-Edge* findEdgeOfVertice(Graph* graph, Vertice* verticeFrom, char* nameTo, unsigned int weight);
+Edge* findEdgeOfVertice(Graph* graph, Vertice* verticeFrom, char* nameTo, int weight);
 void findAndDeleteEdgesInGraph(Graph* graph, char* nameTo);
 
-void addEdgeToVertice(Vertice* vertice, char* name, unsigned int weight);
+void addEdgeToVertice(Vertice* vertice, char* name, int weight);
 Vertice* insertVerticeToGraph(Graph* graph, char* name);
-void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weight);
+void insertEdgeToGraph(Graph* graph, char* name1, char* name2, int weight);
 
 void deleteVerticeFromGraph(Graph* graph, char* name,  int should_delete_incoming_eges);
 
-char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, unsigned int weight);
+char deleteEdgeFromGraph(Graph* graph, char* nameFrom, char* nameTo, int weight);
 
 
 #endif
