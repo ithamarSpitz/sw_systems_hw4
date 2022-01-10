@@ -68,6 +68,10 @@ void destroyGraph(Graph* graph) {
 //            printf("Graph is empty\n");
             return;
         }
+        graph->verticesNum = 0;
+        free(graph->lastVertice);
+        free(graph->firstVertice);
+        graph->edgesNum = 0;
         free(graph);
     }
 //    printf("Graph was destroyed successfully\n");
@@ -679,7 +683,6 @@ void b(int* arr, Graph* graph){
     for (int i = 0; i < 10; i++)
         name[i] = ' ';
     snprintf (name, 10*sizeof(char), "%d",number);
-    name = realloc(name, sizeof(char)*10);   ///////////////////////////////
     //itoa(number, name, 10);
     deleteVerticeFromGraph(graph, name, 0);
     if(arr[0] == 2){
