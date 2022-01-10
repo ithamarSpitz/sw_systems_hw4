@@ -580,6 +580,10 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
             return -1;
         sum +=  ans;
     }
+    if(sum == 10003){
+
+        
+    }
     return sum;
 }
 
