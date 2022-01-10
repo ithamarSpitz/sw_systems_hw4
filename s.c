@@ -169,11 +169,7 @@ return ans;
 
 Vertice* findVerticeInGraph(Graph* graph, char* name) {
     Vertice* curVertice = graph->firstVertice;
-    while (curVertice != NULL) {
-        if(curVertice->name != NULL){
-        char* n = curVertice->name;
-//        printf("%s\n", n);
-        }
+    while (curVertice != NULL && curVertice->name != NULL) {
         if (strcmp(curVertice->name, name) == 0) {
             return curVertice;
         } else if (strcmp(name, curVertice->name) < 0)
