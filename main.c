@@ -410,6 +410,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
             }
         }
     }
+    return NULL;
 }
 
 // inserts an Edge to the Graph
@@ -613,7 +614,7 @@ int* convertStrtoArr(char* str){
 	int* arr = (int*)malloc(length*sizeof(int));
     for (int k = 0; k<length ; k++) 
         arr[k] = 0;
-	int j = 1, i, len = 0;
+	int j = 1, i;
 	for (i = 0; i<length ; i++) {
 		if (str[i] == ' '){
             if(i == 0)
