@@ -570,10 +570,8 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
 
     for (int i = 0; i < size-1; i++){// size-1 deleted?
         int ans = dijkstra(graph, myarr[i], myarr[i+1]);
-        if(ans == -1){
-            free(myarr);
+        if(ans == -1)
             return -1;
-        }
         sum +=  ans;
     }
     free(myarr);
