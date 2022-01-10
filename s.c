@@ -117,12 +117,12 @@ int dijkstra(Graph* graph, int startnode, int endnode){
 int n = size_of_array(graph);
 int* g = g2arr(graph);
 /////////////////////
-for (int i = 0; i < n; i++){
-    for (int j = 0; j < n; j++){
-        printf("|%d",g[n*i+j]);
-    }
-    printf("|\n");
-}
+// for (int i = 0; i < n; i++){
+//     for (int j = 0; j < n; j++){
+//         printf("|%d",g[n*i+j]);
+//     }
+//     printf("|\n");
+// }
 
 int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
