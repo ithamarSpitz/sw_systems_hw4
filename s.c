@@ -54,6 +54,7 @@ void freeVertice(Vertice* vertice) {
     if (vertice->firstEdge != NULL)
         freeEdge(vertice->firstEdge);
     free(vertice->name);
+    vertice->edgesNum = 0;
     free(vertice);
     return;
 }
