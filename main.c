@@ -745,6 +745,6 @@ int main(void){
     Graph* g = initGraph();
     g = function_finder(str, g);
     free(str);
-    exit(0);
+    return 0;
 }
 //uninitialized value ats
