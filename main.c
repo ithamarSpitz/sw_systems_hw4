@@ -124,8 +124,7 @@ int* g = g2arr(graph);
 //     printf("|\n");
 // }
 
-int cost[n][n],distance[n];
-//int pred[n];
+int cost[n][n],distance[n],pred[n];
 int visited[n],count,mindistance,nextnode,i,j;
 //pred[] stores the predecessor of each node
 //count gives the number of nodes seen so far
@@ -139,7 +138,7 @@ cost[i][j]=g[i*n+j];
 //initialize pred[],distance[] and visited[]
 for(i=0;i<n;i++){
 distance[i]=cost[startnode][i];
-//pred[i]=startnode;
+pred[i]=startnode;
 visited[i]=0;
 }
 distance[startnode]=0;
@@ -159,7 +158,7 @@ for(i=0;i<n;i++)
 if(!visited[i])
 if(mindistance+cost[nextnode][i]<distance[i]){
 distance[i]=mindistance+cost[nextnode][i];
-//pred[i]=nextnode;
+pred[i]=nextnode;
 }
 count++;
 }
@@ -582,11 +581,11 @@ int nodes[] = {-1, -1, -1, -1, -1, -1};/////////////////////////////////////////
 for (int i = 2; i < arr[1]+2; i++)
     nodes[i-2] = arr[i];
 int* permute = (int*)malloc(6*sizeof(int));
-for (int i1 = 0; i1 < 6; i1++){
-    for (int i2 = 0; i2 < 6; i2++){
-        for (int i3 = 0; i3 < 6; i3++){
-            for (int i4 = 0; i4 < 6; i4++){
-                for (int i5 = 0; i5 < 6; i5++){
+for (int i1 = 0; i1 < 6; i1++)
+    for (int i2 = 0; i2 < 6; i2++)
+        for (int i3 = 0; i3 < 6; i3++)
+            for (int i4 = 0; i4 < 6; i4++)
+                for (int i5 = 0; i5 < 6; i5++)
                     for (int i6 = 0; i6 < 6; i6++){
                         permute[0] = nodes[i1];
                         permute[1] = nodes[i2];
@@ -604,7 +603,7 @@ for (int i1 = 0; i1 < 6; i1++){
                             if(path<min_path && path != -1)
                                     min_path = path;
                         }
-                        }}}}}}
+                    }
     if(min_path == 2147483646)
         min_path= -1;
     printf("TSP shortest path: %d \n", min_path);
@@ -613,8 +612,8 @@ for (int i1 = 0; i1 < 6; i1++){
 int* convertStrtoArr(char* str){
     int length = strlen(str);
 	int* arr = (int*)malloc(length*sizeof(int));
-    for (int k = 0; k<length ; k++){
-        arr[k] = 0;}
+    for (int k = 0; k<length ; k++) 
+        arr[k] = 0;
 	int j = 1, i;
 	for (i = 0; i<length ; i++) {
 		if (str[i] == ' '){
