@@ -164,7 +164,6 @@ distance[i]=mindistance+cost[nextnode][i];
 count++;
 }
 int ans = distance[endnode];
-free(g);
 if(ans == 0 || ans>=INFINITY)
     return -1;
 return ans;
@@ -574,7 +573,6 @@ int dijkstra_in_line(Graph* graph, int* arr, int size){
             return -1;
         sum +=  ans;
     }
-    free(myarr);
     return sum;
 }
 
@@ -606,7 +604,7 @@ for (int i1 = 0; i1 < 6; i1++){
                             if(path<min_path && path != -1)
                                     min_path = path;
                         }
-}}}}}}
+                        }}}}}}
     if(min_path == 2147483646)
         min_path= -1;
     printf("TSP shortest path: %d \n", min_path);
