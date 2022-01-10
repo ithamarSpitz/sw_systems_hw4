@@ -1,20 +1,20 @@
-all: graph graf.a
+all: graph graf.so
 
-graf.o: graf.c graf.h
-	gcc -Wall -g -c graf.c -lm
+graf.o: main.c graf.h
+	gcc -Wall -g -c main.c -lm
 
 main.o: main.c graf.h
 	gcc -Wall -g -c main.c
 
-graf.a: graf.o
-	ar -rcs lib.a graf.o
+graf.so: graf.o
+	gcc -shared -o main.o
 
-graph: main.o graf.a
-	gcc -Wall -g -o graph main.o graf.a -lm
+graph: main.o graf.so
+	gcc -Wall -g -o graph main.o ./graf.so -lm
 
 .PHONY: clean
 
 clean:
-	rm -f *.o *.a graph
+	rm -f *.o *.a *.so graph
 
 

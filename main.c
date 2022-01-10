@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include "graf.h"
 #define INFINITY 9999
 
 char* allocName(char* name) {
