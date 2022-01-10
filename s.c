@@ -417,7 +417,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 // inserts an Edge to the Graph
 void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weight) {
 
-    printf("\nname1:%s name2:%s\n", name1,  name2);
+//    printf("\nname1:%s name2:%s\n", name1,  name2);
     Vertice* foundVertices[2];
     Vertice* verticeTarget;
     if (strcmp(name1, name2) == 0) {
@@ -566,7 +566,7 @@ void s(int* arr, Graph* graph){
     // printf("|\n");
     // }
     int distance = dijkstra(graph, arr[1], arr[2]);
-    printf("\nDijakstra is: %d\n", distance);
+    printf("Dijakstra is: %d\n", distance);
 }
 
 int dijkstra_in_line(Graph* graph, int* arr, int size){
@@ -616,7 +616,7 @@ for (int i1 = 0; i1 < 6; i1++)
                     }
     if(min_path == 2147483646)
         min_path= -1;
-    printf("TSP shortest path: %d", min_path);
+    printf("TSP shortest path: %d\n", min_path);
 }
 
 int* convertStrtoArr(char* str){
@@ -752,17 +752,9 @@ int main(void){
     char *str;
     str = inputString(stdin, 10);
     Graph* g = initGraph();
-    printf("%s\n", str);
     g = function_finder(str, g);
-    printf("%s\n", str);
     int i = 1;
     Vertice* node = g->firstVertice;
-    if(node == NULL) printf("first node is null");
-    while(node != NULL){
-        // printf("\n node's name is:%s\n", node->name);
-        node= node->nextVertice;
-    }
-    
     free(str);
     return 0;
 }
