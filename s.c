@@ -171,7 +171,8 @@ Vertice* findVerticeInGraph(Graph* graph, char* name) {
     while (curVertice != NULL) {
         if(curVertice->name != NULL){
         char* n = curVertice->name;
-        printf("%s\n", n);}
+//        printf("%s\n", n);
+        }
         if (strcmp(curVertice->name, name) == 0) {
             return curVertice;
         } else if (strcmp(name, curVertice->name) < 0)
@@ -357,7 +358,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
     Vertice* foundVertice = findVerticeInGraph(graph, name);
 
     if (foundVertice != NULL) {
-        printf("Node |%s| Exists;\n\n", name);
+        // printf("Node |%s| Exists;\n\n", name);
         return NULL;
     }
 
@@ -366,7 +367,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
         graph->lastVertice = graph->firstVertice;
         graph->verticesNum++;
-        printf("Inserted woo|%s|\n\n", name);
+        // printf("Inserted woo|%s|\n\n", name);
         return graph->firstVertice;
     } else {
         Vertice* curVertice = graph->firstVertice;
@@ -379,7 +380,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
             curVertice->prevVertice = verticeToInsert;
             graph->firstVertice = verticeToInsert;
             graph->verticesNum++;
-            printf("first Inserted |%s|\n\n", name);
+            // printf("first Inserted |%s|\n\n", name);
             return graph->firstVertice;
         } else {
             while (curVertice != NULL) {
@@ -392,7 +393,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
                         curVertice->nextVertice->prevVertice = verticeToInsert;
                         curVertice->nextVertice = verticeToInsert;
                         graph->verticesNum++;
-                        printf("Inserted |%s|\n\n", name);
+                        // printf("Inserted |%s|\n\n", name);
 
                         return curVertice->nextVertice;
                     }
@@ -403,7 +404,7 @@ Vertice* insertVerticeToGraph(Graph* graph, char* name) {
 
                     graph->lastVertice = verticeToInsert;
                     graph->verticesNum++;
-                    printf("last Inserted |%s|\n\n", name);
+                    // printf("last Inserted |%s|\n\n", name);
                     return verticeToInsert;
                 }
 
@@ -420,7 +421,7 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
     Vertice* foundVertices[2];
     Vertice* verticeTarget;
     if (strcmp(name1, name2) == 0) {
-        printf("strings are equall!?");
+//        printf("strings are equall!?");
         verticeTarget = findVerticeInGraph(graph, name1);
         if (verticeTarget == NULL)
             verticeTarget = insertVerticeToGraph(graph, name1);
@@ -429,15 +430,15 @@ void insertEdgeToGraph(Graph* graph, char* name1, char* name2, unsigned int weig
         verticeTarget = foundVertices[0];
         if (foundVertices[0] == NULL){
             verticeTarget = insertVerticeToGraph(graph, name1);
-            printf("foundVertices[0] == NULL");
+//            printf("foundVertices[0] == NULL");
         }
 
         if (foundVertices[1] == NULL){
             insertVerticeToGraph(graph, name2);
-            printf("foundVertices[1] == NULL");
+            // printf("foundVertices[1] == NULL");
         }
     }
-    printf("verticeTarget is: %s, name2 is: %s weight is: %d\n", verticeTarget->name, name2, weight);
+    // printf("verticeTarget is: %s, name2 is: %s weight is: %d\n", verticeTarget->name, name2, weight);
     addEdgeToVertice(verticeTarget, name2, weight);
     graph->edgesNum++;
 //    printf("Inserted |%s|->%u->|%s|\n\n", name1, weight, name2);
@@ -557,15 +558,15 @@ char *inputString(FILE* fp, size_t size){
 void s(int* arr, Graph* graph){
     int *garr = g2arr(graph);
     int size = size_of_array(graph); 
-    printf("size is: %d", size);
-    for (int i = 0; i < size; i++)
-    {for (int j = 0; j < size; j++){
-        printf("|%d", garr[i*size+j]);
-    }
-    printf("|\n");
-    }
+    // printf("size is: %d", size);
+    // for (int i = 0; i < size; i++)
+    // {for (int j = 0; j < size; j++){
+    //     printf("|%d", garr[i*size+j]);
+    // }
+    // printf("|\n");
+    // }
     int distance = dijkstra(graph, arr[1], arr[2]);
-    printf("\ndiakstra is: %d\n", distance);
+    printf("\nDijakstra is: %d\n", distance);
 }
 
 int dijkstra_in_line(Graph* graph, int* arr, int size){
@@ -758,7 +759,7 @@ int main(void){
     Vertice* node = g->firstVertice;
     if(node == NULL) printf("first node is null");
     while(node != NULL){
-        printf("\n node's name is:%s\n", node->name);
+        // printf("\n node's name is:%s\n", node->name);
         node= node->nextVertice;
     }
     
