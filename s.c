@@ -3,8 +3,6 @@
 #include<string.h>
 #include "graf.h"
 #define INFINITY 9999
-#define NULL 0
-
 
 char* allocName(char* name) {
     return (char*)malloc(sizeof(name) + 1);
