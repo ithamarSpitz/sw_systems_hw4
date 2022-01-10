@@ -564,7 +564,7 @@ void s(int* arr, Graph* graph){
     // printf("|\n");
     // }
     int distance = dijkstra(graph, arr[1], arr[2]);
-    printf("Dijakstra is: %d\n", distance);
+    printf("Dijsktra shortest path: %d \n", distance);
 }
 
 int dijkstra_in_line(Graph* graph, int* arr, int size){
@@ -618,7 +618,7 @@ for (int i1 = 0; i1 < 6; i1++)
                     }
     if(min_path == 2147483646)
         min_path= -1;
-    printf("TSP shortest path: %d\n", min_path);
+    printf("TSP shortest path: %d \n", min_path);
 }
 
 int* convertStrtoArr(char* str){
