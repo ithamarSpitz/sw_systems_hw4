@@ -64,14 +64,12 @@ void destroyGraph(Graph* graph) {
     if (graph != NULL) {
         if (graph->verticesNum > 0) {
             freeVertice(graph->firstVertice);
+            graph->lastVertice = NULL;
+            graph->firstVertice = NULL;
         } else {
 //            printf("Graph is empty\n");
             return;
         }
-        graph->verticesNum = 0;
-        free(graph->lastVertice);
-        free(graph->firstVertice);
-        graph->edgesNum = 0;
         free(graph);
     }
 //    printf("Graph was destroyed successfully\n");
